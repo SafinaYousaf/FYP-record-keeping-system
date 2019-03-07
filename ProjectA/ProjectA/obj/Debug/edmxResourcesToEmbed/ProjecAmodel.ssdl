@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Advisor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Designation" Type="int" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Evaluation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="TotalMarks" Type="int" Nullable="false" />
+    <Property Name="TotalWeightage" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Created_On" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GroupEvaluation">
+    <Key>
+      <PropertyRef Name="GroupId" />
+      <PropertyRef Name="EvaluationId" />
+    </Key>
+    <Property Name="GroupId" Type="int" Nullable="false" />
+    <Property Name="EvaluationId" Type="int" Nullable="false" />
+    <Property Name="ObtainedMarks" Type="int" Nullable="false" />
+    <Property Name="EvaluationDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GroupProject">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+    <Property Name="AssignmentDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GroupStudent">
+    <Key>
+      <PropertyRef Name="GroupId" />
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="GroupId" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="AssignmentDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lookup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="Contact" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="Gender" Type="int" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectAdvisor">
+    <Key>
+      <PropertyRef Name="AdvisorId" />
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="AdvisorId" Type="int" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="AdvisorRole" Type="int" Nullable="false" />
+    <Property Name="AssignmentDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="RegistrationNo" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Advisor_Lookup">
+    <End Role="Lookup" Type="Self.Lookup" Multiplicity="1" />
+    <End Role="Advisor" Type="Self.Advisor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Advisor">
+        <PropertyRef Name="Designation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupEvaluation_Evaluation">
+    <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="1" />
+    <End Role="GroupEvaluation" Type="Self.GroupEvaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evaluation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupEvaluation">
+        <PropertyRef Name="EvaluationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupEvaluation_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="GroupEvaluation" Type="Self.GroupEvaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupEvaluation">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupProject_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="GroupProject" Type="Self.GroupProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupProject">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupProject_Project">
+    <End Role="Project" Type="Self.Project" Multiplicity="1" />
+    <End Role="GroupProject" Type="Self.GroupProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupProject">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupStudents_Lookup">
+    <End Role="Lookup" Type="Self.Lookup" Multiplicity="1" />
+    <End Role="GroupStudent" Type="Self.GroupStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupStudent">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Lookup">
+    <End Role="Lookup" Type="Self.Lookup" Multiplicity="0..1" />
+    <End Role="Person" Type="Self.Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectAdvisor_Lookup">
+    <End Role="Lookup" Type="Self.Lookup" Multiplicity="1" />
+    <End Role="ProjectAdvisor" Type="Self.ProjectAdvisor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectAdvisor">
+        <PropertyRef Name="AdvisorRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectAdvisor_Project">
+    <End Role="Project" Type="Self.Project" Multiplicity="1" />
+    <End Role="ProjectAdvisor" Type="Self.ProjectAdvisor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectAdvisor">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectStudents_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="GroupStudent" Type="Self.GroupStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupStudent">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectStudents_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="GroupStudent" Type="Self.GroupStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupStudent">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectTeachers_Teacher">
+    <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+    <End Role="ProjectAdvisor" Type="Self.ProjectAdvisor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Advisor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectAdvisor">
+        <PropertyRef Name="AdvisorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjectAModelStoreContainer">
+    <EntitySet Name="Advisor" EntityType="Self.Advisor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Evaluation" EntityType="Self.Evaluation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupEvaluation" EntityType="Self.GroupEvaluation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupProject" EntityType="Self.GroupProject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupStudent" EntityType="Self.GroupStudent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lookup" EntityType="Self.Lookup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectAdvisor" EntityType="Self.ProjectAdvisor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Advisor_Lookup" Association="Self.FK_Advisor_Lookup">
+      <End Role="Lookup" EntitySet="Lookup" />
+      <End Role="Advisor" EntitySet="Advisor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupEvaluation_Evaluation" Association="Self.FK_GroupEvaluation_Evaluation">
+      <End Role="Evaluation" EntitySet="Evaluation" />
+      <End Role="GroupEvaluation" EntitySet="GroupEvaluation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupEvaluation_Group" Association="Self.FK_GroupEvaluation_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="GroupEvaluation" EntitySet="GroupEvaluation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupProject_Group" Association="Self.FK_GroupProject_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="GroupProject" EntitySet="GroupProject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupProject_Project" Association="Self.FK_GroupProject_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="GroupProject" EntitySet="GroupProject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupStudents_Lookup" Association="Self.FK_GroupStudents_Lookup">
+      <End Role="Lookup" EntitySet="Lookup" />
+      <End Role="GroupStudent" EntitySet="GroupStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Lookup" Association="Self.FK_Person_Lookup">
+      <End Role="Lookup" EntitySet="Lookup" />
+      <End Role="Person" EntitySet="Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectAdvisor_Lookup" Association="Self.FK_ProjectAdvisor_Lookup">
+      <End Role="Lookup" EntitySet="Lookup" />
+      <End Role="ProjectAdvisor" EntitySet="ProjectAdvisor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectAdvisor_Project" Association="Self.FK_ProjectAdvisor_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="ProjectAdvisor" EntitySet="ProjectAdvisor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectStudents_Group" Association="Self.FK_ProjectStudents_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="GroupStudent" EntitySet="GroupStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectStudents_Student" Association="Self.FK_ProjectStudents_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="GroupStudent" EntitySet="GroupStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectTeachers_Teacher" Association="Self.FK_ProjectTeachers_Teacher">
+      <End Role="Advisor" EntitySet="Advisor" />
+      <End Role="ProjectAdvisor" EntitySet="ProjectAdvisor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Person" Association="Self.FK_Student_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

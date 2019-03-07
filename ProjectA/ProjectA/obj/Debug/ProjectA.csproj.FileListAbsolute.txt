@@ -11,10 +11,16 @@ F:\Temp\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.pdb
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\ProjectA.exe.config
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\ProjectA.exe
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\ProjectA.pdb
-C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csprojAssemblyReference.cache
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Display.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Properties.Resources.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csproj.GenerateResource.cache
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csproj.CoreCompileInputs.cache
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.exe
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.pdb
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\EntityFramework.dll
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\EntityFramework.xml
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csproj.CopyComplete
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csprojAssemblyReference.cache
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.AddStudenForm.resources

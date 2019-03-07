@@ -354,7 +354,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="GroupEvaluations" Relationship="Self.FK_GroupEvaluation_Group" FromRole="Group" ToRole="GroupEvaluation" />
           <NavigationProperty Name="GroupProjects" Relationship="Self.FK_GroupProject_Group" FromRole="Group" ToRole="GroupProject" />
           <NavigationProperty Name="GroupStudents" Relationship="Self.FK_ProjectStudents_Group" FromRole="Group" ToRole="GroupStudent" />
@@ -367,7 +367,7 @@
           <Property Name="GroupId" Type="Int32" Nullable="false" />
           <Property Name="EvaluationId" Type="Int32" Nullable="false" />
           <Property Name="ObtainedMarks" Type="Int32" Nullable="false" />
-          <Property Name="EvaluationDate" Type="DateTime" Nullable="false" />
+          <Property Name="EvaluationDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Evaluation" Relationship="Self.FK_GroupEvaluation_Evaluation" FromRole="GroupEvaluation" ToRole="Evaluation" />
           <NavigationProperty Name="Group" Relationship="Self.FK_GroupEvaluation_Group" FromRole="GroupEvaluation" ToRole="Group" />
         </EntityType>
@@ -378,7 +378,7 @@
           </Key>
           <Property Name="ProjectId" Type="Int32" Nullable="false" />
           <Property Name="GroupId" Type="Int32" Nullable="false" />
-          <Property Name="AssignmentDate" Type="DateTime" Nullable="false" />
+          <Property Name="AssignmentDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Group" Relationship="Self.FK_GroupProject_Group" FromRole="GroupProject" ToRole="Group" />
           <NavigationProperty Name="Project" Relationship="Self.FK_GroupProject_Project" FromRole="GroupProject" ToRole="Project" />
         </EntityType>
@@ -390,7 +390,7 @@
           <Property Name="GroupId" Type="Int32" Nullable="false" />
           <Property Name="StudentId" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
-          <Property Name="AssignmentDate" Type="DateTime" Nullable="false" />
+          <Property Name="AssignmentDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Group" Relationship="Self.FK_ProjectStudents_Group" FromRole="GroupStudent" ToRole="Group" />
           <NavigationProperty Name="Lookup" Relationship="Self.FK_GroupStudents_Lookup" FromRole="GroupStudent" ToRole="Lookup" />
           <NavigationProperty Name="Student" Relationship="Self.FK_ProjectStudents_Student" FromRole="GroupStudent" ToRole="Student" />
@@ -416,7 +416,7 @@
           <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DateOfBirth" Type="DateTime" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
           <Property Name="Gender" Type="Int32" />
           <NavigationProperty Name="Lookup" Relationship="Self.FK_Person_Lookup" FromRole="Person" ToRole="Lookup" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Student_Person" FromRole="Person" ToRole="Student" />
@@ -439,7 +439,7 @@
           <Property Name="AdvisorId" Type="Int32" Nullable="false" />
           <Property Name="ProjectId" Type="Int32" Nullable="false" />
           <Property Name="AdvisorRole" Type="Int32" Nullable="false" />
-          <Property Name="AssignmentDate" Type="DateTime" Nullable="false" />
+          <Property Name="AssignmentDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Advisor" Relationship="Self.FK_ProjectTeachers_Teacher" FromRole="ProjectAdvisor" ToRole="Advisor" />
           <NavigationProperty Name="Lookup" Relationship="Self.FK_ProjectAdvisor_Lookup" FromRole="ProjectAdvisor" ToRole="Lookup" />
           <NavigationProperty Name="Project" Relationship="Self.FK_ProjectAdvisor_Project" FromRole="ProjectAdvisor" ToRole="Project" />
@@ -802,6 +802,7 @@
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
