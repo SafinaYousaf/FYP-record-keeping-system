@@ -1,0 +1,10 @@
+F:\Temp\ProjectA\ProjectA\ProjectA\bin\Debug\ProjectA.exe.config
+F:\Temp\ProjectA\ProjectA\ProjectA\bin\Debug\ProjectA.exe
+F:\Temp\ProjectA\ProjectA\ProjectA\bin\Debug\ProjectA.pdb
+F:\Temp\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csprojAssemblyReference.cache
+F:\Temp\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Display.resources
+F:\Temp\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Properties.Resources.resources
+F:\Temp\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csproj.GenerateResource.cache
+F:\Temp\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csproj.CoreCompileInputs.cache
+F:\Temp\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.exe
+F:\Temp\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.pdb
