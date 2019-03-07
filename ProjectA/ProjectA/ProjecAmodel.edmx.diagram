@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7c6fb88f12ab4b61b0eba681fd683536" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjectAModel.Advisor" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectAModel.Evaluation" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectAModel.Group" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectAModel.GroupEvaluation" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectAModel.GroupProject" Width="1.5" PointX="10.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectAModel.GroupStudent" Width="1.5" PointX="7.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectAModel.Lookup" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectAModel.Person" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectAModel.Project" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectAModel.ProjectAdvisor" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectAModel.Student" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="ProjectAModel.FK_Advisor_Lookup" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_ProjectTeachers_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_GroupEvaluation_Evaluation" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_GroupEvaluation_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_GroupProject_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_ProjectStudents_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_GroupProject_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_GroupStudents_Lookup" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_ProjectStudents_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_Person_Lookup" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_ProjectAdvisor_Lookup" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_Student_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectAModel.FK_ProjectAdvisor_Project" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

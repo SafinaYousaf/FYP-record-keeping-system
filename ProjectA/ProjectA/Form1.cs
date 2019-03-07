@@ -13,7 +13,7 @@ namespace ProjectA
 {
     public partial class Display : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=SAFINAYOUSAF\SAFINA;Initial Catalog=ProjectA;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=SAVIRAYOUSAF;Initial Catalog=ProjectA;Integrated Security=True");
         public Display()
         {
             InitializeComponent();
@@ -34,7 +34,19 @@ namespace ProjectA
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            panel1.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel1.Show();
             disp_data();
+        }
+
+        private void StudentGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
