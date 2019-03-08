@@ -36,6 +36,7 @@
             this.Add = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -45,12 +46,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.stuId = new System.Windows.Forms.TextBox();
             this.regNo = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
-            this.gender = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dob = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Fname = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.Genderr = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.StudentGrid)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -165,6 +165,17 @@
             this.panel2.Size = new System.Drawing.Size(370, 74);
             this.panel2.TabIndex = 7;
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.Window;
+            this.button5.Location = new System.Drawing.Point(33, 15);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "AddRegNo";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Window;
@@ -174,6 +185,7 @@
             this.button3.TabIndex = 1;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -254,17 +266,6 @@
             this.regNo.Size = new System.Drawing.Size(94, 20);
             this.regNo.TabIndex = 3;
             // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.Window;
-            this.button5.Location = new System.Drawing.Point(33, 15);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "AddRegNo";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.button6);
@@ -291,7 +292,6 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.label8, 0, 6);
-            this.tableLayoutPanel3.Controls.Add(this.gender, 1, 6);
             this.tableLayoutPanel3.Controls.Add(this.label7, 0, 5);
             this.tableLayoutPanel3.Controls.Add(this.dob, 1, 5);
             this.tableLayoutPanel3.Controls.Add(this.label6, 0, 4);
@@ -302,6 +302,7 @@
             this.tableLayoutPanel3.Controls.Add(this.Lname, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.Fname, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.Genderr, 1, 6);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(47, 21);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 8;
@@ -324,13 +325,6 @@
             this.label8.Size = new System.Drawing.Size(42, 13);
             this.label8.TabIndex = 5;
             this.label8.Text = "Gender";
-            // 
-            // gender
-            // 
-            this.gender.Location = new System.Drawing.Point(103, 138);
-            this.gender.Name = "gender";
-            this.gender.Size = new System.Drawing.Size(94, 20);
-            this.gender.TabIndex = 11;
             // 
             // label7
             // 
@@ -413,6 +407,7 @@
             this.Fname.Name = "Fname";
             this.Fname.Size = new System.Drawing.Size(94, 20);
             this.Fname.TabIndex = 6;
+            this.Fname.TextChanged += new System.EventHandler(this.Fname_TextChanged);
             this.Fname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Fname_KeyPress);
             // 
             // label10
@@ -425,6 +420,17 @@
             this.label10.Size = new System.Drawing.Size(254, 45);
             this.label10.TabIndex = 10;
             this.label10.Text = "Manage Student";
+            // 
+            // Genderr
+            // 
+            this.Genderr.FormattingEnabled = true;
+            this.Genderr.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.Genderr.Location = new System.Drawing.Point(103, 138);
+            this.Genderr.Name = "Genderr";
+            this.Genderr.Size = new System.Drawing.Size(94, 21);
+            this.Genderr.TabIndex = 12;
             // 
             // Display
             // 
@@ -483,7 +489,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox gender;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox dob;
         private System.Windows.Forms.Label label6;
@@ -495,6 +500,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Fname;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox Genderr;
     }
 }
 

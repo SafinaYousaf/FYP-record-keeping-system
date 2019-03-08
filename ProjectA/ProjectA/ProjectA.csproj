@@ -117,6 +117,12 @@
     <Compile Include="Student.cs">
       <DependentUpon>ProjecAmodel.tt</DependentUpon>
     </Compile>
+    <Compile Include="welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="welcome.Designer.cs">
+      <DependentUpon>welcome.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddStudenForm.resx">
       <DependentUpon>AddStudenForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +138,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="welcome.resx">
+      <DependentUpon>welcome.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="ProjecAmodel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ProjecAmodel.Designer.cs</LastGenOutput>

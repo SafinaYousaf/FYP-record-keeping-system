@@ -14,7 +14,7 @@ namespace ProjectA
     public partial class Display : Form
     {
         AddStudenForm addstu = new AddStudenForm();
-        SqlConnection con = new SqlConnection(@"Data Source=SAVIRAYOUSAF;Initial Catalog=ProjectA;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=SAVIRAYOUSAF;Initial Catalog=ProjectA;MultipleActiveResultSets=true;Integrated Security=True");
         public Display()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace ProjectA
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT TOP(3) P.Id,S.RegistrationNo AS 'RegNo',P.FirstName,P.LastName,P.Contact,P.Email,P.DateOfBirth,P.Gender FROM Person AS P JOIN Student AS S ON S.Id= P.Id ORDER BY S.Id DESC";
+            cmd.CommandText = "SELECT TOP(10) P.Id,P.FirstName,P.LastName,P.Contact,P.Email,P.DateOfBirth,P.Gender FROM Person AS P ORDER BY P.Id DESC";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -118,7 +118,7 @@ namespace ProjectA
             panel5.Hide();
             panel1.Show();
             panel2.Show();
-            panel3.Hide();
+            panel3.Show();
             panel4.Show();
             
         }
@@ -166,26 +166,70 @@ namespace ProjectA
             MessageBox.Show("Inserted");
             */
         }
+        int value;
+        private int Gender_look(string gen)
+        {
+            string query;
+            
+            if (gen == "Male")
+                query = "SELECT Id FROM Lookup where Category= 'GENDER' AND Value = 'Male'";
+            else
+                query = "SELECT Id FROM Lookup where Category= 'GENDER' AND Value = 'Female'";
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand cmd = new SqlCommand(query, con);
 
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                value = int.Parse(reader[0].ToString());
+            }
+            return value;
+
+        }
         private void button6_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrWhiteSpace(Fname.Text) || string.IsNullOrWhiteSpace(email.Text))
+            {
+                MessageBox.Show("Firstname and email is compulsory.");
+            }
             /*
              * if (!this.e.Text.Contains('@') || !this.txtEmail.Text.Contains('.'))
             {
                 MessageBox.Show("Please Enter A Valid Email", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }*/
-            con.Open();
+            
 
 
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "INSERT INTO Person (FirstName,LastName,Email,Contact,DateofBirth) VALUES('" + Fname.Text + "','" + Lname.Text + "','" + email.Text + "','" + Cont.Text + "','" + dob.Text + "')";
-            cmd.ExecuteNonQuery();
-            con.Close();
+            /* SqlCommand cmd = con.CreateCommand();
+             cmd.CommandType = CommandType.Text;
+             int g = (int)Genderr.SelectedValue;
 
-            //Message box
-            MessageBox.Show("Inserted");
+             cmd.CommandText = "INSERT INTO Person (FirstName,LastName,Email,Contact,DateofBirth) VALUES('" + Fname.Text + "','" + Lname.Text + "','" + email.Text + "','" + Cont.Text + "','" + dob.Text + "')";
+
+             cmd.ExecuteNonQuery();
+             con.Close();
+             */
+            else{
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd = new SqlCommand("INSERT INTO PERSON(FirstName,LastName,Contact,Email,DateOfBirth,Gender) VALUES(@FirstName,@LastName,@Contact,@Email,@DateofBirth,@Gender)", con);
+                cmd.Parameters.AddWithValue("@FirstName", Fname.Text);
+                cmd.Parameters.AddWithValue("@LastName", Lname.Text);
+                cmd.Parameters.AddWithValue("@Contact", Cont.Text);
+                cmd.Parameters.AddWithValue("@Email", email.Text);
+                cmd.Parameters.AddWithValue("@DateOfBirth", dob.Text);
+                string genn = Genderr.Text.ToString();
+                int g = Gender_look(genn);
+                cmd.Parameters.AddWithValue("@Gender", g);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Data Inserted Successfully");
+            }
+
+           //handling panels
 
             panel4.Hide();
             panel3.Hide();
@@ -255,6 +299,16 @@ namespace ProjectA
                 e.Handled = true;
 
             }
+        }
+
+        private void Fname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
