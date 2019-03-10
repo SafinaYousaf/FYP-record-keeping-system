@@ -26,3 +26,5 @@ C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.we
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.EditDelForm.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Advisorr.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csprojAssemblyReference.cache
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Project.resources
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.ProjectAdvisor.resources

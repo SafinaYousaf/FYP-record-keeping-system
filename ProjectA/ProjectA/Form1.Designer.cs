@@ -52,7 +52,6 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dob = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.email = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.DEid = new System.Windows.Forms.TextBox();
+            this.dob = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.StudentGrid)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -316,7 +316,6 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.label8, 0, 6);
             this.tableLayoutPanel3.Controls.Add(this.label7, 0, 5);
-            this.tableLayoutPanel3.Controls.Add(this.dob, 1, 5);
             this.tableLayoutPanel3.Controls.Add(this.label6, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.email, 1, 4);
             this.tableLayoutPanel3.Controls.Add(this.label5, 0, 3);
@@ -326,6 +325,7 @@
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.Fname, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.Genderr, 1, 6);
+            this.tableLayoutPanel3.Controls.Add(this.dob, 1, 5);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(47, 21);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 8;
@@ -357,13 +357,6 @@
             this.label7.Size = new System.Drawing.Size(30, 13);
             this.label7.TabIndex = 4;
             this.label7.Text = "DOB";
-            // 
-            // dob
-            // 
-            this.dob.Location = new System.Drawing.Point(103, 118);
-            this.dob.Name = "dob";
-            this.dob.Size = new System.Drawing.Size(94, 20);
-            this.dob.TabIndex = 10;
             // 
             // label6
             // 
@@ -512,6 +505,13 @@
             this.DEid.Size = new System.Drawing.Size(76, 20);
             this.DEid.TabIndex = 1;
             // 
+            // dob
+            // 
+            this.dob.Location = new System.Drawing.Point(103, 118);
+            this.dob.Name = "dob";
+            this.dob.Size = new System.Drawing.Size(94, 20);
+            this.dob.TabIndex = 13;
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -575,7 +575,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox dob;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label5;
@@ -592,6 +591,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TextBox DEid;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.DateTimePicker dob;
     }
 }
 

@@ -80,6 +80,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addDis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.addDis.BackgroundColor = System.Drawing.SystemColors.Info;
             this.addDis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.addDis.Location = new System.Drawing.Point(3, 3);
             this.addDis.Name = "addDis";
@@ -88,7 +89,8 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.button3, 0, 1);
@@ -131,9 +133,7 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.SystemColors.Window;
             this.button1.Location = new System.Drawing.Point(666, 12);
             this.button1.Name = "button1";
@@ -169,7 +169,7 @@
             this.button4.BackColor = System.Drawing.SystemColors.Window;
             this.button4.Location = new System.Drawing.Point(13, 3);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(83, 41);
+            this.button4.Size = new System.Drawing.Size(83, 42);
             this.button4.TabIndex = 7;
             this.button4.Text = "Add";
             this.button4.UseVisualStyleBackColor = false;
@@ -237,13 +237,11 @@
             // 
             // Edit
             // 
-            this.Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Edit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Edit.BackColor = System.Drawing.SystemColors.Window;
-            this.Edit.Location = new System.Drawing.Point(158, 17);
+            this.Edit.Location = new System.Drawing.Point(67, 17);
             this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(93, 42);
+            this.Edit.Size = new System.Drawing.Size(83, 42);
             this.Edit.TabIndex = 9;
             this.Edit.Text = "Edit";
             this.Edit.UseVisualStyleBackColor = false;
@@ -255,31 +253,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.Edit);
-            this.panel1.Location = new System.Drawing.Point(286, 173);
+            this.panel1.Location = new System.Drawing.Point(387, 173);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 125);
+            this.panel1.Size = new System.Drawing.Size(186, 102);
             this.panel1.TabIndex = 9;
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.button4);
             this.panel2.Location = new System.Drawing.Point(441, 173);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(246, 170);
+            this.panel2.Size = new System.Drawing.Size(212, 111);
             this.panel2.TabIndex = 1;
             // 
             // button5
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.BackColor = System.Drawing.SystemColors.Window;
-            this.button5.Location = new System.Drawing.Point(426, 361);
+            this.button5.Location = new System.Drawing.Point(441, 365);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(129, 45);
+            this.button5.Size = new System.Drawing.Size(96, 36);
             this.button5.TabIndex = 10;
             this.button5.Text = "Edit";
             this.button5.UseVisualStyleBackColor = false;
@@ -304,9 +298,7 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.IDdel);
             this.panel3.Controls.Add(this.Delete);
@@ -317,9 +309,7 @@
             // 
             // Delete
             // 
-            this.Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Delete.BackColor = System.Drawing.SystemColors.Window;
             this.Delete.Location = new System.Drawing.Point(114, 110);
             this.Delete.Name = "Delete";
@@ -331,9 +321,7 @@
             // 
             // IDdel
             // 
-            this.IDdel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.IDdel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.IDdel.Location = new System.Drawing.Point(102, 37);
             this.IDdel.Name = "IDdel";
             this.IDdel.Size = new System.Drawing.Size(100, 20);
@@ -341,9 +329,7 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(32, 40);
             this.label4.Name = "label4";
@@ -353,9 +339,7 @@
             // 
             // button6
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button6.BackColor = System.Drawing.SystemColors.Window;
             this.button6.Location = new System.Drawing.Point(590, 365);
             this.button6.Name = "button6";
@@ -369,11 +353,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.AddAdvisor);
             this.Controls.Add(this.button1);

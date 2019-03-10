@@ -230,7 +230,7 @@ namespace ProjectA
                 cmd.Parameters.AddWithValue("@LastName", Lname.Text);
                 cmd.Parameters.AddWithValue("@Contact", Cont.Text);
                 cmd.Parameters.AddWithValue("@Email", email.Text);
-                cmd.Parameters.AddWithValue("@DateOfBirth", dob.Text);
+                cmd.Parameters.AddWithValue("@DateOfBirth", DateTime.Parse(dob.Text));
                 string genn = Genderr.Text.ToString();
                 int g = Gender_look(genn);
                 cmd.Parameters.AddWithValue("@Gender", g);

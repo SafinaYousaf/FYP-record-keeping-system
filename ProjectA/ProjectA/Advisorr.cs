@@ -103,31 +103,34 @@ namespace ProjectA
             {
                 MessageBox.Show("ID and Designation is compulsory.");
             }
-            con.Open();
-            SqlCommand check_User_Name = new SqlCommand("SELECT ID FROM Advisor WHERE ([ID] = @ID)", con);
-            check_User_Name.Parameters.AddWithValue("ID", ID.Text);
-            SqlDataReader reader = check_User_Name.ExecuteReader();
-            if (reader.HasRows)
-            {
-                con.Close();
-                MessageBox.Show("Record exists against provided ID.");
-            }
             else
             {
-                con.Close();
                 con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd = new SqlCommand("INSERT INTO Advisor(ID, Designation,Salary) VALUES(@ID,@Designation,@Salary)", con);
-                cmd.Parameters.AddWithValue("@ID", ID.Text);
-                string desig = Genderr.Text.ToString();
-                int g = Designation_look(desig);
-                cmd.Parameters.AddWithValue("@Designation", g);
-                cmd.Parameters.AddWithValue("@Salary", Salary.Text);
+                SqlCommand check_User_Name = new SqlCommand("SELECT ID FROM Advisor WHERE ([ID] = @ID)", con);
+                check_User_Name.Parameters.AddWithValue("ID", ID.Text);
+                SqlDataReader reader = check_User_Name.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    con.Close();
+                    MessageBox.Show("Record exists against provided ID.");
+                }
+                else
+                {
+                    con.Close();
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd = new SqlCommand("INSERT INTO Advisor(ID, Designation,Salary) VALUES(@ID,@Designation,@Salary)", con);
+                    cmd.Parameters.AddWithValue("@ID", ID.Text);
+                    string desig = Genderr.Text.ToString();
+                    int g = Designation_look(desig);
+                    cmd.Parameters.AddWithValue("@Designation", g);
+                    cmd.Parameters.AddWithValue("@Salary", Salary.Text);
 
 
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Data Inserted Successfully");
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Data Inserted Successfully");
+                }
             }
         }
 
