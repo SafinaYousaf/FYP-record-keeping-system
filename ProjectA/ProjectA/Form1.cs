@@ -13,7 +13,7 @@ namespace ProjectA
 {
     public partial class Display : Form
     {
-        AddStudenForm addstu = new AddStudenForm();
+        EditDelForm addstu = new EditDelForm();
         SqlConnection con = new SqlConnection(@"Data Source=SAVIRAYOUSAF;Initial Catalog=ProjectA;MultipleActiveResultSets=true;Integrated Security=True");
         public Display()
         {
@@ -42,12 +42,18 @@ namespace ProjectA
             panel3.Hide();
             AddStudent.Hide();
             panel5.Hide();
+            panel6.Hide();
           
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+            panel2.Hide();
+            panel4.Hide();
+            AddStudent.Hide();
+            panel5.Hide();
             panel1.Show();
             panel3.Show();
             panel2.Show();
@@ -63,6 +69,8 @@ namespace ProjectA
         {
             //addstu.Show();
             panel1.Hide();
+            panel2.Hide();
+            panel6.Hide();
             panel4.Hide();
             panel3.Hide();
             AddStudent.Hide();
@@ -116,6 +124,8 @@ namespace ProjectA
         {
             disp_data();
             panel5.Hide();
+            panel6.Hide();
+            AddStudent.Hide();
             panel1.Show();
             panel2.Show();
             panel3.Show();
@@ -308,7 +318,57 @@ namespace ProjectA
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //EditDelForm edf = new EditDelForm();
+            //edf.Show();
+            
+            
+            panel4.Hide();
+            
+            AddStudent.Hide();
+            panel5.Hide();
+            panel1.Show();
+            panel3.Show();
+            panel2.Show();
+            panel6.Show();
+        }
 
+        private void button7_Click(object sender, EventArgs e)
+        { 
+            con.Open();
+            SqlCommand check_User_Name = new SqlCommand("SELECT ID FROM Student WHERE ([ID] = @ID)", con);
+            // SqlCommand check_User_Name = new SqlCommand("SELECT * FROM Table WHERE ([user] = @user)", conn);
+            check_User_Name.Parameters.AddWithValue("ID", DEid.Text);
+            SqlDataReader reader = check_User_Name.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "DELETE FROM STUDENT WHERE ([ID] = '"+DEid.Text+"')";
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+                MessageBox.Show("DELETED");
+
+
+            }
+
+            else
+            {
+                con.Close();
+
+                //Message box
+                MessageBox.Show("Record does not exists exits");
+
+
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Advisorr AdvisorForm = new Advisorr();
+            AdvisorForm.Show();
         }
     }
 }

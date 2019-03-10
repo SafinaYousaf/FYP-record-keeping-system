@@ -61,11 +61,11 @@
     <Compile Include="AddStudenForm.Designer.cs">
       <DependentUpon>AddStudenForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Advisor.cs">
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
+    <Compile Include="Advisorr.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Evaluation.cs">
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
+    <Compile Include="Advisorr.Designer.cs">
+      <DependentUpon>Advisorr.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -73,50 +73,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Group.cs">
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GroupEvaluation.cs">
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GroupProject.cs">
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GroupStudent.cs">
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Lookup.cs">
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Person.cs">
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="ProjecAmodel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProjecAmodel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProjecAmodel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProjecAmodel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProjecAmodel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Project.cs">
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProjectAdvisor.cs">
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student.cs">
-      <DependentUpon>ProjecAmodel.tt</DependentUpon>
-    </Compile>
     <Compile Include="welcome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +83,9 @@
     </Compile>
     <EmbeddedResource Include="AddStudenForm.resx">
       <DependentUpon>AddStudenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Advisorr.resx">
+      <DependentUpon>Advisorr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -141,14 +102,7 @@
     <EmbeddedResource Include="welcome.resx">
       <DependentUpon>welcome.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="ProjecAmodel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ProjecAmodel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="packages.config" />
-    <None Include="ProjecAmodel.edmx.diagram">
-      <DependentUpon>ProjecAmodel.edmx</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -161,18 +115,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ProjecAmodel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ProjecAmodel.Context.cs</LastGenOutput>
-      <DependentUpon>ProjecAmodel.edmx</DependentUpon>
-    </Content>
-    <Content Include="ProjecAmodel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProjecAmodel.edmx</DependentUpon>
-      <LastGenOutput>ProjecAmodel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

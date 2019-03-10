@@ -22,5 +22,17 @@ namespace ProjectA
             Display fm1 = new Display();
             fm1.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Advisorr AdvisorForm = new Advisorr();
+            AdvisorForm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Project pro = new Project();
+            pro.Show();
+        }
     }
 }

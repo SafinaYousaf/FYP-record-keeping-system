@@ -22,6 +22,7 @@ C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\EntityFrame
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\EntityFramework.xml
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csproj.CopyComplete
-C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csprojAssemblyReference.cache
-C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.AddStudenForm.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.welcome.resources
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.EditDelForm.resources
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Advisorr.resources
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csprojAssemblyReference.cache
