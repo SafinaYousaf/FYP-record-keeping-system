@@ -35,23 +35,23 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.AddAdvisor = new System.Windows.Forms.Panel();
-            this.ID = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.TextBox();
             this.Salary = new System.Windows.Forms.TextBox();
             this.Genderr = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Delete = new System.Windows.Forms.Button();
-            this.IDdel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.IDdel = new System.Windows.Forms.TextBox();
+            this.Delete = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.AdvisorDisplay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addDis)).BeginInit();
@@ -154,27 +154,6 @@
             this.AddAdvisor.Size = new System.Drawing.Size(417, 172);
             this.AddAdvisor.TabIndex = 8;
             // 
-            // ID
-            // 
-            this.ID.Location = new System.Drawing.Point(76, 3);
-            this.ID.Name = "ID";
-            this.ID.Size = new System.Drawing.Size(68, 20);
-            this.ID.TabIndex = 8;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.SystemColors.Window;
-            this.button4.Location = new System.Drawing.Point(13, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(83, 42);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -195,23 +174,12 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(147, 97);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label2
+            // ID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Salary";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Designation";
+            this.ID.Location = new System.Drawing.Point(76, 3);
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(68, 20);
+            this.ID.TabIndex = 8;
             // 
             // Salary
             // 
@@ -234,6 +202,47 @@
             this.Genderr.Name = "Genderr";
             this.Genderr.Size = new System.Drawing.Size(68, 21);
             this.Genderr.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Salary";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Designation";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "ID";
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.SystemColors.Window;
+            this.button4.Location = new System.Drawing.Point(13, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(83, 42);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Add";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Edit
             // 
@@ -287,15 +296,6 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "ID";
-            // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -306,6 +306,24 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(229, 159);
             this.panel3.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(32, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(18, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "ID";
+            // 
+            // IDdel
+            // 
+            this.IDdel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.IDdel.Location = new System.Drawing.Point(102, 37);
+            this.IDdel.Name = "IDdel";
+            this.IDdel.Size = new System.Drawing.Size(100, 20);
+            this.IDdel.TabIndex = 13;
             // 
             // Delete
             // 
@@ -318,24 +336,6 @@
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = false;
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
-            // 
-            // IDdel
-            // 
-            this.IDdel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.IDdel.Location = new System.Drawing.Point(102, 37);
-            this.IDdel.Name = "IDdel";
-            this.IDdel.Size = new System.Drawing.Size(100, 20);
-            this.IDdel.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 40);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "ID";
             // 
             // button6
             // 
@@ -355,10 +355,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.AddAdvisor);
             this.Controls.Add(this.button1);

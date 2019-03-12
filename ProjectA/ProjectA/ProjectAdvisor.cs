@@ -57,6 +57,8 @@ namespace ProjectA
         private void ProjectAdvisor_Load(object sender, EventArgs e)
         {
             panel2.Hide();
+            addpan.Hide();
+            editpan.Hide();
             panel1.Show();
             disp_data();
         }
@@ -87,6 +89,8 @@ namespace ProjectA
         private void button9_Click(object sender, EventArgs e)
         {
             panel2.Hide();
+            addpan.Hide();
+            editpan.Hide();
             panel1.Show();
             disp_data();
         }
@@ -94,7 +98,9 @@ namespace ProjectA
         private void button4_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            editpan.Hide();
             panel2.Show();
+            addpan.Show();
         }
 
         int value;
@@ -124,6 +130,8 @@ namespace ProjectA
         }
         private void button8_Click(object sender, EventArgs e)
         {
+            //outer if check if Project Id and advisor Id exists or not.
+            //inner if check if there is any kind of primary key violation inside table
             con.Open();
             SqlCommand check_User_Name = new SqlCommand("SELECT ID FROM Advisor WHERE ([ID] = @ID)", con);
             check_User_Name.Parameters.AddWithValue("ID", AdvId.Text);
@@ -133,22 +141,36 @@ namespace ProjectA
             SqlDataReader reader2 = check_User_Name.ExecuteReader();
             if (reader1.HasRows && reader2.HasRows)
             {
+
                 con.Close();
-               
                 con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd = new SqlCommand("INSERT INTO ProjectAdvisor(AdvisorId, ProjectId,AdvisorRole,AssignmentDate) VALUES(@AdvisorId,@ProjectId,@AdvisorRole,@AssignmentDate)", con);
-                cmd.Parameters.AddWithValue("@ProjectId", ProId.Text);
-                cmd.Parameters.AddWithValue("@AdvisorId", AdvId.Text);
-                string desig = AdvR.Text.ToString();
-                int g = Advisor_look(desig);
-                cmd.Parameters.AddWithValue("@AdvisorRole", g);
-                cmd.Parameters.AddWithValue("@AssignmentDate", DateTime.Parse(Assgdate.Text));
+                SqlCommand check_User_Name3 = new SqlCommand("SELECT ProjectId,AdvisorId  FROM ProjectAdvisor WHERE ([AdvisorId] = @AdvisorId  and [ProjectId] = @ProjectId)", con);
+                check_User_Name.Parameters.AddWithValue("AdvisorId", AdvId.Text);
+                check_User_Name.Parameters.AddWithValue("ProjectId", ProId.Text);
+                SqlDataReader reader3 = check_User_Name.ExecuteReader();
+                if (reader3.HasRows)
+                {
+                    con.Close();
+                    MessageBox.Show("There must exists one advisor of one type for 1 project.");
+                }
+                else
+                {
+                    con.Close();
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd = new SqlCommand("INSERT INTO ProjectAdvisor(AdvisorId, ProjectId,AdvisorRole,AssignmentDate) VALUES(@AdvisorId,@ProjectId,@AdvisorRole,@AssignmentDate)", con);
+                    cmd.Parameters.AddWithValue("@ProjectId", ProId.Text);
+                    cmd.Parameters.AddWithValue("@AdvisorId", AdvId.Text);
+                    string desig = AdvR.Text.ToString();
+                    int g = Advisor_look(desig);
+                    cmd.Parameters.AddWithValue("@AdvisorRole", g);
+                    cmd.Parameters.AddWithValue("@AssignmentDate", DateTime.Parse(Assgdate.Text));
 
 
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Data Inserted Successfully");
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Data Inserted Successfully");
+                }
             }
             
             
@@ -158,11 +180,34 @@ namespace ProjectA
                 
                 MessageBox.Show("Record does not exists.");
             }
+            con.Close();
         }
 
         private void AsgDate_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void addpan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            panel1.Hide();
+            
+            addpan.Hide();
+            editpan.Show();
+            panel2.Show();
+
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Evaluation eval = new Evaluation();
+            eval.Show();
         }
     }
 }
