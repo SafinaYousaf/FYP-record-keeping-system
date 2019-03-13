@@ -130,7 +130,9 @@ namespace ProjectA
             panel1.Show();
             disp_data();
         }
-
+        
+        
+        
         private void button8_Click(object sender, EventArgs e)
         {
             con.Open();

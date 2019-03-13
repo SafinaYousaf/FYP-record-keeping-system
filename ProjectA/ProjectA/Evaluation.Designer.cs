@@ -38,6 +38,7 @@
             this.evaldispGrid = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.addpan = new System.Windows.Forms.Panel();
+            this.addrec = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Namebx = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.weightage = new System.Windows.Forms.TextBox();
             this.edpanbt = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.addrec = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.Idbx = new System.Windows.Forms.TextBox();
             this.nameebx = new System.Windows.Forms.TextBox();
@@ -60,10 +60,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.IdDel = new System.Windows.Forms.TextBox();
-            this.button8 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.evaldispGrid)).BeginInit();
@@ -104,6 +104,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.eval.BackColor = System.Drawing.SystemColors.Window;
             this.eval.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eval.ForeColor = System.Drawing.Color.Blue;
             this.eval.Location = new System.Drawing.Point(3, 135);
             this.eval.Name = "eval";
             this.eval.Size = new System.Drawing.Size(122, 30);
@@ -119,6 +120,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button9.BackColor = System.Drawing.SystemColors.Window;
             this.button9.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.Color.Blue;
             this.button9.Location = new System.Drawing.Point(3, 102);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(122, 27);
@@ -133,6 +135,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.BackColor = System.Drawing.SystemColors.Window;
             this.button5.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.Blue;
             this.button5.Location = new System.Drawing.Point(3, 36);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(122, 27);
@@ -147,6 +150,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button6.BackColor = System.Drawing.SystemColors.Window;
             this.button6.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.Blue;
             this.button6.Location = new System.Drawing.Point(3, 69);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(122, 27);
@@ -161,6 +165,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button7.BackColor = System.Drawing.SystemColors.Window;
             this.button7.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.Blue;
             this.button7.Location = new System.Drawing.Point(3, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(122, 27);
@@ -198,6 +203,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackColor = System.Drawing.SystemColors.Window;
             this.button4.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.Blue;
             this.button4.Location = new System.Drawing.Point(670, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(83, 40);
@@ -217,6 +223,20 @@
             this.addpan.Name = "addpan";
             this.addpan.Size = new System.Drawing.Size(413, 238);
             this.addpan.TabIndex = 15;
+            // 
+            // addrec
+            // 
+            this.addrec.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.addrec.BackColor = System.Drawing.SystemColors.Window;
+            this.addrec.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addrec.ForeColor = System.Drawing.Color.Blue;
+            this.addrec.Location = new System.Drawing.Point(303, 189);
+            this.addrec.Name = "addrec";
+            this.addrec.Size = new System.Drawing.Size(107, 40);
+            this.addrec.TabIndex = 21;
+            this.addrec.Text = "Add";
+            this.addrec.UseVisualStyleBackColor = false;
+            this.addrec.Click += new System.EventHandler(this.addrec_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -315,6 +335,7 @@
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.button1.BackColor = System.Drawing.SystemColors.Window;
             this.button1.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Blue;
             this.button1.Location = new System.Drawing.Point(292, 199);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 36);
@@ -322,19 +343,6 @@
             this.button1.Text = "Edit";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // addrec
-            // 
-            this.addrec.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.addrec.BackColor = System.Drawing.SystemColors.Window;
-            this.addrec.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addrec.Location = new System.Drawing.Point(303, 189);
-            this.addrec.Name = "addrec";
-            this.addrec.Size = new System.Drawing.Size(107, 40);
-            this.addrec.TabIndex = 21;
-            this.addrec.Text = "Add";
-            this.addrec.UseVisualStyleBackColor = false;
-            this.addrec.Click += new System.EventHandler(this.addrec_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -399,6 +407,7 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 25);
@@ -410,6 +419,7 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Blue;
             this.label4.Location = new System.Drawing.Point(3, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 25);
@@ -421,6 +431,7 @@
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Blue;
             this.label5.Location = new System.Drawing.Point(3, 50);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 25);
@@ -432,6 +443,7 @@
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Blue;
             this.label6.Location = new System.Drawing.Point(3, 75);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 25);
@@ -443,6 +455,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.SystemColors.Window;
             this.button2.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Blue;
             this.button2.Location = new System.Drawing.Point(535, 402);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 36);
@@ -456,6 +469,7 @@
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.BackColor = System.Drawing.SystemColors.Window;
             this.button3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Blue;
             this.button3.Location = new System.Drawing.Point(680, 402);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(96, 36);
@@ -473,6 +487,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 124);
             this.panel2.TabIndex = 23;
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.BackColor = System.Drawing.SystemColors.Window;
+            this.button8.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.Blue;
+            this.button8.Location = new System.Drawing.Point(92, 72);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(96, 40);
+            this.button8.TabIndex = 23;
+            this.button8.Text = "Delete";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -495,36 +523,23 @@
             this.label7.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 38);
+            this.label7.Size = new System.Drawing.Size(62, 38);
             this.label7.TabIndex = 0;
             this.label7.Text = "ID";
             // 
             // IdDel
             // 
             this.IdDel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.IdDel.Location = new System.Drawing.Point(70, 3);
+            this.IdDel.Location = new System.Drawing.Point(71, 3);
             this.IdDel.Name = "IdDel";
-            this.IdDel.Size = new System.Drawing.Size(112, 20);
+            this.IdDel.Size = new System.Drawing.Size(111, 20);
             this.IdDel.TabIndex = 1;
-            // 
-            // button8
-            // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.BackColor = System.Drawing.SystemColors.Window;
-            this.button8.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(92, 72);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(96, 40);
-            this.button8.TabIndex = 23;
-            this.button8.Text = "Delete";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // Evaluation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Info;
+            this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(800, 438);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button3);

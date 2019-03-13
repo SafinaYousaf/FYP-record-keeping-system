@@ -24,18 +24,32 @@ namespace ProjectA
             Display stuFm = new Display();
             stuFm.Show();
         }
+        DataTable dt = new DataTable();
         public void disp_data()
         {
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT TOP(10) * FROM Advisor AS A";
+            cmd.CommandText = "SELECT TOP(10) A.Designation, A.Salary FROM Advisor AS A";
             cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
+           // DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             addDis.DataSource = dt; //Student is name of data grid view present on form
             con.Close();
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            addDis.Columns.Add(btn);
+            btn.HeaderText = "Delete";
+            btn.Text = "Delete";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+
+            DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
+            addDis.Columns.Add(btn1);
+            btn1.HeaderText = "Update";
+            btn1.Text = "Update";
+            btn1.Name = "btn1";
+            btn1.UseColumnTextForButtonValue = true;
 
         }
         private void button3_Click(object sender, EventArgs e)
@@ -45,7 +59,7 @@ namespace ProjectA
             panel2.Hide();
             panel3.Hide();
             AdvisorDisplay.Show();
-            disp_data();
+            //disp_data();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -146,6 +160,7 @@ namespace ProjectA
 
         private void Edit_Click(object sender, EventArgs e)
         {
+            //update_rec();
             con.Open();
             SqlCommand check_User_Name = new SqlCommand("SELECT ID FROM Advisor WHERE ([ID] = @ID)", con);
             check_User_Name.Parameters.AddWithValue("ID", ID.Text);
@@ -165,6 +180,7 @@ namespace ProjectA
                 con.Close();
                 MessageBox.Show("Record does not exists.");
             }
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -208,6 +224,112 @@ namespace ProjectA
             AdvisorDisplay.Show();
             panel3.Show();
 
+        }
+        private void Delete_rec()
+        {
+            con.Open();
+
+            int index = addDis.CurrentCell.RowIndex;
+            addDis.Rows[index].Selected = true;
+            string id = addDis.SelectedCells[0].Value.ToString();
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand(" DELETE FROM Advisor WHERE Id = '" + id + "';", con);
+                cmd.ExecuteNonQuery();
+                addDis.Rows.RemoveAt(index);
+                addDis.DataSource = dt;
+                MessageBox.Show("Chal gya");
+
+            }
+
+            catch
+            {
+                MessageBox.Show("Naaaaaaaahi hua");
+            }
+            con.Close();
+        }
+        private void update_rec()
+        {
+            con.Open();
+
+            int index = addDis.CurrentCell.RowIndex;
+            addDis.Rows[index].Selected = true;
+            string id = addDis.SelectedCells[0].Value.ToString();
+            string desig = Genderr.Text.ToString();
+            int g = Designation_look(desig);
+
+            SqlCommand cmd = new SqlCommand(" Update Advisor SET ID= '" + id + "', Designation = '" + g + "', Salary= '" + Salary.Text + "';", con);
+            cmd.ExecuteNonQuery();
+            addDis.Rows.RemoveAt(index);
+            addDis.DataSource = dt;
+            MessageBox.Show("Chal gya");
+            /*try
+            {
+                string desig = Genderr.Text.ToString();
+                int g = Designation_look(desig);
+
+                SqlCommand cmd = new SqlCommand(" Update Advisor SET ID= '"+id+"', Designation = '"+g+"', Salary= '"+Salary.Text+"';", con);
+                cmd.ExecuteNonQuery();
+                addDis.Rows.RemoveAt(index);
+                addDis.DataSource = dt;
+                MessageBox.Show("Chal gya");
+
+            }
+
+            catch
+            {
+                MessageBox.Show("Naaaaaaaahi hua");
+            }
+            */
+            con.Close();
+            
+        }
+
+        private void addDis_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this Person?", "Person", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Delete_rec();
+                }
+                
+            }
+            if (e.ColumnIndex == 3)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to update this Person", "person", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    AdvisorDisplay.Hide();
+                    panel2.Hide();
+                    AddAdvisor.Show();
+                    panel1.Show();
+                    panel3.Hide();
+                }
+                
+
+
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Project profm = new Project();
+            profm.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ProjectAdvisor proad = new ProjectAdvisor();
+            proad.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Evaluation evalfm = new Evaluation();
+            evalfm.Show();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace ProjectA
 {
     public partial class Project : Form
     {
+        int chk = 0;
         SqlConnection con = new SqlConnection(@"Data Source=SAVIRAYOUSAF;Initial Catalog=ProjectA;MultipleActiveResultSets=true;Integrated Security=True");
         public Project()
         {
@@ -21,6 +22,7 @@ namespace ProjectA
 
         private void Project_Load(object sender, EventArgs e)
         {
+            chk++;
             panel2.Hide();
             panel3.Hide();
             panel4.Hide();
@@ -41,18 +43,37 @@ namespace ProjectA
             Advisorr advisorfrm = new Advisorr();
             advisorfrm.Show();
         }
+
+        DataTable dt = new DataTable();
         public void disp_data()
         {
+           
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT * FROM Project";
             cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             ProjectGrid.DataSource = dt; //ProjectGrid is name of data grid view present on form
             con.Close();
+            
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                ProjectGrid.Columns.Add(btn);
+                btn.HeaderText = "Delete";
+                btn.Text = "Delete";
+                btn.Name = "btn";
+                btn.UseColumnTextForButtonValue = true;
+            
+            DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
+            ProjectGrid.Columns.Add(btn1);
+            btn1.HeaderText = "Update";
+            btn1.Text = "Update";
+            btn1.Name = "btn1";
+            btn1.UseColumnTextForButtonValue = true;
+
+
 
         }
         private void button1_Click(object sender, EventArgs e)
@@ -62,7 +83,7 @@ namespace ProjectA
             panel5.Hide();
             panel3.Hide();
             panel1.Show();
-            disp_data();
+            //disp_data();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -121,6 +142,14 @@ namespace ProjectA
 
         private void button8_Click(object sender, EventArgs e)
         {
+            update_rec();
+            panel2.Hide();
+            panel3.Hide();
+            panel5.Hide();
+            
+            panel4.Hide();
+
+            panel1.Show();
 
         }
 
@@ -161,6 +190,105 @@ namespace ProjectA
         {
             ProjectAdvisor proadd = new ProjectAdvisor();
             proadd.Show();
+        }
+        private void ProjectGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this candidate?", "Candidate", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Del_rec();
+                }
+               
+            }
+            if (e.ColumnIndex == 4)
+            {
+                MessageBox.Show("ok");
+
+                DialogResult result = MessageBox.Show("Are you sure you want to update ?", "Project", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    panel1.Hide();
+                    panel3.Hide();
+                    panel4.Hide();
+                    panel5.Show();
+                    panel2.Show();
+                    
+                    
+                }
+
+            }
+
+        }
+
+        private void update_rec()
+        {
+            con.Open();
+
+            int index = ProjectGrid.CurrentCell.RowIndex;
+            ProjectGrid.Rows[index].Selected = true;
+            string id = ProjectGrid.SelectedCells[0].Value.ToString();
+            try
+            {
+                //SqlCommand con = new SqlCommand("SELECT Id FROM STUDENT WHERE id = ", con);
+                //SqlDataReader reader = con.ExecuteReader();
+                
+                SqlCommand cmd = new SqlCommand(" Update Project SET Description = '"+ProId.Text+"', Title = '"+Title.Text+"';" , con);
+                cmd.ExecuteNonQuery();
+                ProjectGrid.Rows.RemoveAt(index);
+                ProjectGrid.DataSource = dt;
+                MessageBox.Show("Chal gya");
+
+            }
+
+            catch
+            {
+                MessageBox.Show("Can not update data.");
+            }
+            con.Close();
+        }
+        private void Del_rec()
+        {
+            con.Open();
+
+            int index = ProjectGrid.CurrentCell.RowIndex;
+            ProjectGrid.Rows[index].Selected = true;
+            string id = ProjectGrid.SelectedCells[0].Value.ToString();
+            try
+            {
+                //SqlCommand con = new SqlCommand("SELECT Id FROM STUDENT WHERE id = ", con);
+                //SqlDataReader reader = con.ExecuteReader();
+                SqlCommand cmd = new SqlCommand(" DELETE FROM Project WHERE Id = '" + id + "';", con);
+                cmd.ExecuteNonQuery();
+                ProjectGrid.Rows.RemoveAt(index);
+                ProjectGrid.DataSource = dt;
+                MessageBox.Show("Chal gya");
+                
+            }
+
+            catch
+            {
+                MessageBox.Show("Can not delete data.");
+            }
+            con.Close();
+        }
+
+        private void ProjectGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            ProjectGrid_CellContentClick(sender, e);
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Evaluation evalfm = new Evaluation();
+            evalfm.Show();
         }
     }
 }
