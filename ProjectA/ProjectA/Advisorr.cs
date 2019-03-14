@@ -30,7 +30,7 @@ namespace ProjectA
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT TOP(10) A.Designation, A.Salary FROM Advisor AS A";
+            cmd.CommandText = "SELECT TOP(10)A.Id, A.Designation, A.Salary FROM Advisor AS A";
             cmd.ExecuteNonQuery();
            // DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -232,20 +232,39 @@ namespace ProjectA
             int index = addDis.CurrentCell.RowIndex;
             addDis.Rows[index].Selected = true;
             string id = addDis.SelectedCells[0].Value.ToString();
+            SqlCommand cmdchk = new SqlCommand("SELECT AdvisorId From ProjectAdvisor WHERE AdvisorId='" + id + "'", con);
+            SqlDataReader reader = cmdchk.ExecuteReader();
             try
             {
+                if (reader.HasRows)
+                {
+                    con.Close();
 
-                SqlCommand cmd = new SqlCommand(" DELETE FROM Advisor WHERE Id = '" + id + "';", con);
-                cmd.ExecuteNonQuery();
-                addDis.Rows.RemoveAt(index);
-                addDis.DataSource = dt;
-                MessageBox.Show("Chal gya");
+                    MessageBox.Show("Can not Delete as data exists in ProjectAdvisor.");
+                }
+                else
+                {
+                    try
+                    {
+
+                        SqlCommand cmd = new SqlCommand(" DELETE FROM Advisor WHERE Id = '" + id + "';", con);
+                        cmd.ExecuteNonQuery();
+                        addDis.Rows.RemoveAt(index);
+                        addDis.DataSource = dt;
+                        MessageBox.Show("Chal gya");
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Naaaaaaaahi hua");
+                    }
+                }
+
 
             }
-
             catch
             {
-                MessageBox.Show("Naaaaaaaahi hua");
+                MessageBox.Show("Naaaaaaaahi hua6");
             }
             con.Close();
         }
@@ -288,7 +307,7 @@ namespace ProjectA
 
         private void addDis_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 2)
+            if (e.ColumnIndex == 3)
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this Person?", "Person", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
@@ -297,7 +316,7 @@ namespace ProjectA
                 }
                 
             }
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 4)
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to update this Person", "person", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)

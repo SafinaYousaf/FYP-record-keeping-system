@@ -118,26 +118,7 @@ namespace ProjectA
         private void button1_Click(object sender, EventArgs e)
         {
             Update_rec();
-            /*
-            con.Open();
-            SqlCommand check_User_Name = new SqlCommand("SELECT ID FROM Evaluation WHERE ([ID] = @ID)", con);
-            check_User_Name.Parameters.AddWithValue("ID", Idbx.Text);
-            SqlDataReader reader = check_User_Name.ExecuteReader();
-            if (reader.HasRows)
-            {
-
-                
-                SqlCommand cmd = new SqlCommand("UPDATE Evaluation SET Name = '" + nameebx.Text + "', TotalMarks = '" + TMbx.Text + "', TotalWeightage = '"+TWbx.Text+"' WHERE ID = '" + Idbx.Text + "'; ", con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Record Updated Sucessfully");
-            }
-            else
-            {
-                con.Close();
-                MessageBox.Show("Record does not exists.");
-            }
-            */
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -217,16 +198,16 @@ namespace ProjectA
                 cmd.ExecuteNonQuery();
                 evaldispGrid.Rows.RemoveAt(index);
                 evaldispGrid.DataSource = dt;
-                MessageBox.Show("Chal gya");
+                MessageBox.Show("Done.");
                 this.Hide();
-                Display obj = new Display();
+                Evaluation obj = new Evaluation();
                 obj.Show();
 
             }
 
             catch
             {
-                MessageBox.Show("Naaaaaaaahi hua");
+                MessageBox.Show("Something Went wrong.");
             }
             con.Close();
         }
@@ -260,20 +241,20 @@ namespace ProjectA
         private void evaldispGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
-                MessageBox.Show("ok1");
+                
                 if (e.ColumnIndex == 4)
                 {
                     DialogResult result = MessageBox.Show("Are you sure you want to delete this Evaluation?", "Evaluation", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
-                        MessageBox.Show("ok");
-                    Delete_Rec();
+                        
+                        Delete_Rec();
                         // Delete();
                     }
                     else if (result == DialogResult.No)
                     {
                         this.Hide();
-                        Display obj = new Display();
+                        Evaluation obj = new Evaluation();
                         obj.Show();
                     }
                 }
@@ -282,25 +263,17 @@ namespace ProjectA
                     DialogResult result = MessageBox.Show("Are you sure you want to update this Evaluation", "Evaluation", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
-                        MessageBox.Show("ok");
+                        
                         panel1.Hide();
                          panel2.Hide();
                           addpan.Hide();
                           edpanbt.Show();
-                    /*panel1.Hide();
-                    panel2.Hide();
-                    //panel6.Hide();
-                    panel4.Hide();
-                    //panel3.Hide();
-                    AddStudent.Hide();
-                    panel5.Hide();
-                    updatepan.Show();
-                    //Update_rec();*/
+                    
                 }
                     else if (result == DialogResult.No)
                     {
                         this.Hide();
-                        Display obj = new Display();
+                        Evaluation obj = new Evaluation();
                         obj.Show();
                     }
 

@@ -49,11 +49,9 @@
             this.edpanbt = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.Idbx = new System.Windows.Forms.TextBox();
             this.nameebx = new System.Windows.Forms.TextBox();
             this.TMbx = new System.Windows.Forms.TextBox();
             this.TWbx = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -361,11 +359,9 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.tableLayoutPanel3.Controls.Add(this.Idbx, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.nameebx, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.TMbx, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.TWbx, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label4, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.label6, 0, 3);
@@ -378,14 +374,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(369, 97);
             this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // Idbx
-            // 
-            this.Idbx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Idbx.Location = new System.Drawing.Point(209, 3);
-            this.Idbx.Name = "Idbx";
-            this.Idbx.Size = new System.Drawing.Size(157, 20);
-            this.Idbx.TabIndex = 0;
             // 
             // nameebx
             // 
@@ -410,18 +398,6 @@
             this.TWbx.Name = "TWbx";
             this.TWbx.Size = new System.Drawing.Size(157, 20);
             this.TWbx.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 24);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ID";
             // 
             // label4
             // 
@@ -628,11 +604,9 @@
         private System.Windows.Forms.Button addrec;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TextBox Idbx;
         private System.Windows.Forms.TextBox nameebx;
         private System.Windows.Forms.TextBox TMbx;
         private System.Windows.Forms.TextBox TWbx;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

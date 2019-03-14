@@ -256,6 +256,10 @@ namespace ProjectA
                 con.Close();
                 MessageBox.Show("Something went wrong.");
             }
+            con.Close();
+            this.Hide();
+            Project obj = new Project();
+            obj.Show();
         }
         private void Del_rec()
         {
@@ -264,24 +268,46 @@ namespace ProjectA
             int index = ProjectGrid.CurrentCell.RowIndex;
             ProjectGrid.Rows[index].Selected = true;
             string id = ProjectGrid.SelectedCells[0].Value.ToString();
-            SqlCommand cmdchk = new SqlCommand("");
+            SqlCommand cmdchk = new SqlCommand("SELECT ProjectId From ProjectAdvisor WHERE ProjectId='"+id+"'",con);
+            SqlDataReader reader = cmdchk.ExecuteReader();
             try
             {
-                //SqlCommand con = new SqlCommand("SELECT Id FROM STUDENT WHERE id = ", con);
-                //SqlDataReader reader = con.ExecuteReader();
-                SqlCommand cmd = new SqlCommand(" DELETE FROM Project WHERE Id = '" + id + "';", con);
-                cmd.ExecuteNonQuery();
-                ProjectGrid.Rows.RemoveAt(index);
-                ProjectGrid.DataSource = dt;
-                MessageBox.Show("Chal gya");
-                
-            }
+                if (reader.HasRows)
+                {
+                    con.Close();
 
+                    MessageBox.Show("Can not Delete as data exists in ProjectAdvisor.");
+                }
+                else
+                {
+                    try
+                    {
+                        //SqlCommand con = new SqlCommand("SELECT Id FROM STUDENT WHERE id = ", con);
+                        //SqlDataReader reader = con.ExecuteReader();
+                        SqlCommand cmd = new SqlCommand(" DELETE FROM Project WHERE Id = '" + id + "';", con);
+                        cmd.ExecuteNonQuery();
+                        ProjectGrid.Rows.RemoveAt(index);
+                        ProjectGrid.DataSource = dt;
+                        MessageBox.Show("Record deleted.");
+
+                    }
+
+                    catch
+                    {
+                        MessageBox.Show("Can not delete data.");
+                    }
+
+                }
+            }
             catch
             {
-                MessageBox.Show("Can not delete data.");
+                MessageBox.Show("someting went wrong.");
             }
+            
             con.Close();
+            this.Hide();
+            Project obj = new Project();
+            obj.Show();
         }
 
         private void ProjectGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)

@@ -31,6 +31,7 @@ namespace ProjectA
             Advisorr advisorfrm = new Advisorr();
             advisorfrm.Show();
         }
+        DataTable dt;
         public void disp_data()
         {
             con.Open();
@@ -38,11 +39,25 @@ namespace ProjectA
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT * FROM ProjectAdvisor;";
             cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
+            dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             ProAdvGrid.DataSource = dt; //ProjectGrid is name of data grid view present on form
             con.Close();
+            // delete buttons
+             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            ProAdvGrid.Columns.Add(btn);
+            btn.HeaderText = "Delete";
+            btn.Text = "Delete";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+            //update
+            DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
+            ProAdvGrid.Columns.Add(btn1);
+            btn1.HeaderText = "Update";
+            btn1.Text = "Update";
+            btn1.Name = "btn1";
+            btn1.UseColumnTextForButtonValue = true;
 
         }
         private void button1_Click(object sender, EventArgs e)
@@ -50,7 +65,7 @@ namespace ProjectA
             Project Pro = new Project();
             panel2.Hide();
             panel1.Show();
-            disp_data();
+            //disp_data();
             Pro.Show();
         }
 
@@ -92,7 +107,7 @@ namespace ProjectA
             addpan.Hide();
             editpan.Hide();
             panel1.Show();
-            disp_data();
+            //disp_data();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -145,9 +160,9 @@ namespace ProjectA
                 con.Close();
                 con.Open();
                 SqlCommand check_User_Name3 = new SqlCommand("SELECT ProjectId,AdvisorId  FROM ProjectAdvisor WHERE ([AdvisorId] = @AdvisorId  and [ProjectId] = @ProjectId)", con);
-                check_User_Name.Parameters.AddWithValue("AdvisorId", AdvId.Text);
-                check_User_Name.Parameters.AddWithValue("ProjectId", ProId.Text);
-                SqlDataReader reader3 = check_User_Name.ExecuteReader();
+                check_User_Name3.Parameters.AddWithValue("@AdvisorId", AdvId.Text);
+                check_User_Name3.Parameters.AddWithValue("@ProjectId", ProId.Text);
+                SqlDataReader reader3 = check_User_Name3.ExecuteReader();
                 if (reader3.HasRows)
                 {
                     con.Close();
@@ -195,11 +210,8 @@ namespace ProjectA
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            panel1.Hide();
+            Update_rec();
             
-            addpan.Hide();
-            editpan.Show();
-            panel2.Show();
 
 
         }
@@ -208,6 +220,113 @@ namespace ProjectA
         {
             Evaluation eval = new Evaluation();
             eval.Show();
+        }
+
+        private void Update_rec()
+        {
+            con.Open();
+
+            int index = ProAdvGrid.CurrentCell.RowIndex;
+            ProAdvGrid.Rows[index].Selected = true;
+            string advid = ProAdvGrid.SelectedCells[0].Value.ToString();
+            string proid = ProAdvGrid.SelectedCells[1].Value.ToString();
+            try
+            {
+                //SqlCommand con = new SqlCommand("SELECT Id FROM STUDENT WHERE id = ", con);
+                //SqlDataReader reader = con.ExecuteReader();
+                string desig = AdvR.Text.ToString();
+                int g = Advisor_look(desig);
+                SqlCommand cmd = new SqlCommand(" UPDATE ProjectAdvisor SET AdvisorRole = '"+g+"' , AssignmentDate = '"+ DateTime.Parse(Assgdate.Text) + "' WHERE ProjectId = '"+proid+"' AND AdvisorId = '"+advid+"';", con);
+                cmd.ExecuteNonQuery();
+                ProAdvGrid.Rows.RemoveAt(index);
+                ProAdvGrid.DataSource = dt;
+                MessageBox.Show("Done");
+                this.Hide();
+                ProjectAdvisor obj = new ProjectAdvisor();
+                obj.Show();
+
+            }
+
+            catch
+            {
+                MessageBox.Show("something went wrong.");
+            }
+            con.Close();
+        }
+        private void Delete_rec()
+        {
+            con.Close();
+            con.Open();
+
+            int index = ProAdvGrid.CurrentCell.RowIndex;
+            ProAdvGrid.Rows[index].Selected = true;
+            string id = ProAdvGrid.SelectedCells[0].Value.ToString();
+            string id2 = ProAdvGrid.SelectedCells[1].Value.ToString();
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand(" DELETE FROM ProjectAdvisor WHERE AdvisorId= '" + id + "' AND ProjectId='"+id2+"';", con);
+
+                cmd.ExecuteNonQuery();
+                
+                ProAdvGrid.Rows.RemoveAt(index);
+                ProAdvGrid.DataSource = dt;
+                MessageBox.Show("ProjectAdvisor Deleted.");
+
+            }
+
+            catch
+            {
+                MessageBox.Show("Something went wrong.");
+            }
+            con.Close();
+        }
+        private void ProAdvGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this ProjectAdvisor?", "Project Advisor", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Delete_rec();
+                    //Delete_rec();
+                }
+                else if (result == DialogResult.No)
+                {
+                    this.Hide();
+                    ProjectAdvisor obj = new ProjectAdvisor();
+                    obj.Show();
+                }
+            }
+            if (e.ColumnIndex == 5)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to update this ProjectAdvisor", "ProjectAdvisor", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    panel1.Hide();
+                    editpan.Hide();
+                    panel2.Show();
+                    addpan.Hide();
+                    /*panel1.Hide();
+                    panel2.Hide();
+                    //panel6.Hide();
+                    panel4.Hide();
+                    //panel3.Hide();
+                    AddStudent.Hide();
+                    panel5.Hide();
+                    updatepan.Show();
+                    //Update_rec();
+                    */
+                }
+                else if (result == DialogResult.No)
+                {
+                    this.Hide();
+                    ProjectAdvisor obj = new ProjectAdvisor();
+                    obj.Show();
+                }
+
+
+            }
         }
     }
 }

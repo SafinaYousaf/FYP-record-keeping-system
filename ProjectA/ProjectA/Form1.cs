@@ -98,6 +98,7 @@ namespace ProjectA
         }
         private void Update_rec()
         {
+            con.Close();
             con.Open();
 
             int index = StudentGrid.CurrentCell.RowIndex;
@@ -111,7 +112,7 @@ namespace ProjectA
                 cmd.ExecuteNonQuery();
                 StudentGrid.Rows.RemoveAt(index);
                 StudentGrid.DataSource = dt;
-                MessageBox.Show("Chal gya");
+                MessageBox.Show("Done");
                 this.Hide();
                 Display obj = new Display();
                 obj.Show();
@@ -120,7 +121,7 @@ namespace ProjectA
 
             catch
             {
-                MessageBox.Show("Naaaaaaaahi hua");
+                MessageBox.Show("something went wrong.");
             }
             con.Close();
         }

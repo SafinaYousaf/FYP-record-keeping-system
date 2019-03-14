@@ -89,6 +89,7 @@
             this.ProAdvGrid.Name = "ProAdvGrid";
             this.ProAdvGrid.Size = new System.Drawing.Size(413, 206);
             this.ProAdvGrid.TabIndex = 0;
+            this.ProAdvGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProAdvGrid_CellContentClick);
             // 
             // button4
             // 
