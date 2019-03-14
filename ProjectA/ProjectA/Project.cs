@@ -25,7 +25,7 @@ namespace ProjectA
             chk++;
             panel2.Hide();
             panel3.Hide();
-            panel4.Hide();
+            //panel4.Hide();
             panel5.Hide();
             panel1.Show();
             disp_data();
@@ -79,7 +79,7 @@ namespace ProjectA
         private void button1_Click(object sender, EventArgs e)
         {
             panel2.Hide();
-            panel4.Hide();
+            //panel4.Hide();
             panel5.Hide();
             panel3.Hide();
             panel1.Show();
@@ -89,7 +89,7 @@ namespace ProjectA
         private void button4_Click(object sender, EventArgs e)
         {
             panel1.Hide();
-            panel4.Hide();
+            //panel4.Hide();
             panel5.Hide();
             panel2.Show();
             panel3.Show();
@@ -126,6 +126,9 @@ namespace ProjectA
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Data Inserted Successfully");
+                    this.Hide();
+                    Project profm = new Project();
+                    profm.Show();
                 }
             }
         }
@@ -136,7 +139,7 @@ namespace ProjectA
             panel3.Hide();
             panel5.Hide();
             panel1.Show();
-            panel4.Show();
+            //panel4.Show();
 
         }
 
@@ -147,7 +150,7 @@ namespace ProjectA
             panel3.Hide();
             panel5.Hide();
             
-            panel4.Hide();
+            //panel4.Hide();
 
             panel1.Show();
 
@@ -157,7 +160,7 @@ namespace ProjectA
         {
             panel1.Hide();
             panel3.Hide();
-            panel4.Hide();
+            //panel4.Hide();
             panel5.Show();
             panel2.Show();
            
@@ -166,9 +169,9 @@ namespace ProjectA
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            con.Open();
+         /*   con.Open();
             SqlCommand check_User_Name = new SqlCommand("SELECT ID FROM Project WHERE ([ID] = @ID)", con);
-            check_User_Name.Parameters.AddWithValue("ID", IDdel.Text);
+            check_User_Name.Parameters.AddWithValue("ID", //IDdel.Text);
             SqlDataReader reader = check_User_Name.ExecuteReader();
             if (reader.HasRows)
             {
@@ -184,6 +187,7 @@ namespace ProjectA
                 con.Close();
                 MessageBox.Show("Record does not exists.");
             }
+            */
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -211,7 +215,7 @@ namespace ProjectA
                 {
                     panel1.Hide();
                     panel3.Hide();
-                    panel4.Hide();
+                    //panel4.Hide();
                     panel5.Show();
                     panel2.Show();
                     
@@ -325,6 +329,23 @@ namespace ProjectA
         {
             Evaluation evalfm = new Evaluation();
             evalfm.Show();
+        }
+
+        private void Title_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
+            {
+
+
+                e.Handled = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Please Enter only Alphabets.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                e.Handled = true;
+
+            }
         }
     }
 }

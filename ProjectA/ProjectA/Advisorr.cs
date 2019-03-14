@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace ProjectA
 {
@@ -113,7 +114,13 @@ namespace ProjectA
        
         private void button4_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(ID.Text) || string.IsNullOrWhiteSpace(Genderr.Text))
+            string Salarypat = @"^[0-9]*$";
+            bool isValidSalary = Regex.IsMatch(Salary.Text, Salarypat);
+            if (!isValidSalary)
+            {
+                MessageBox.Show("Not valid Salary.");
+            }
+                if (string.IsNullOrWhiteSpace(ID.Text) || string.IsNullOrWhiteSpace(Genderr.Text))
             {
                 MessageBox.Show("ID and Designation is compulsory.");
             }
@@ -349,6 +356,23 @@ namespace ProjectA
         {
             Evaluation evalfm = new Evaluation();
             evalfm.Show();
+        }
+
+        private void Salary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8)
+            {
+
+
+                e.Handled = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Please Enter only Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                e.Handled = true;
+
+            }
         }
     }
 }

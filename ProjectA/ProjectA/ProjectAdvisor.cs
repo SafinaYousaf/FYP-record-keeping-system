@@ -185,6 +185,9 @@ namespace ProjectA
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Data Inserted Successfully");
+                    this.Hide();
+                    ProjectAdvisor pradfm = new ProjectAdvisor();
+                    pradfm.Show();
                 }
             }
             
@@ -232,8 +235,7 @@ namespace ProjectA
             string proid = ProAdvGrid.SelectedCells[1].Value.ToString();
             try
             {
-                //SqlCommand con = new SqlCommand("SELECT Id FROM STUDENT WHERE id = ", con);
-                //SqlDataReader reader = con.ExecuteReader();
+                
                 string desig = AdvR.Text.ToString();
                 int g = Advisor_look(desig);
                 SqlCommand cmd = new SqlCommand(" UPDATE ProjectAdvisor SET AdvisorRole = '"+g+"' , AssignmentDate = '"+ DateTime.Parse(Assgdate.Text) + "' WHERE ProjectId = '"+proid+"' AND AdvisorId = '"+advid+"';", con);
@@ -307,16 +309,7 @@ namespace ProjectA
                     editpan.Hide();
                     panel2.Show();
                     addpan.Hide();
-                    /*panel1.Hide();
-                    panel2.Hide();
-                    //panel6.Hide();
-                    panel4.Hide();
-                    //panel3.Hide();
-                    AddStudent.Hide();
-                    panel5.Hide();
-                    updatepan.Show();
-                    //Update_rec();
-                    */
+                    
                 }
                 else if (result == DialogResult.No)
                 {

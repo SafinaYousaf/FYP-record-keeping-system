@@ -49,10 +49,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.addpan = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.editpan = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -354,19 +352,6 @@
             this.addpan.TabIndex = 12;
             this.addpan.Paint += new System.Windows.Forms.PaintEventHandler(this.addpan_Paint);
             // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button2.Location = new System.Drawing.Point(657, 361);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 36);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -389,22 +374,10 @@
             this.editpan.Size = new System.Drawing.Size(185, 92);
             this.editpan.TabIndex = 19;
             // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button3.Location = new System.Drawing.Point(504, 361);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 36);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Edit";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
             // panel6
             // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.button4);
@@ -434,8 +407,6 @@
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.addpan);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel2);
@@ -479,10 +450,8 @@
         private System.Windows.Forms.ComboBox AdvR;
         private System.Windows.Forms.DateTimePicker Assgdate;
         private System.Windows.Forms.Panel addpan;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel editpan;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label10;

@@ -55,13 +55,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.IdDel = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -71,8 +64,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.edpanbt.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -435,91 +426,6 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "Total Weightage";
             // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Blue;
-            this.button2.Location = new System.Drawing.Point(535, 402);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 36);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Blue;
-            this.button3.Location = new System.Drawing.Point(680, 402);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 36);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel2.Controls.Add(this.button8);
-            this.panel2.Controls.Add(this.tableLayoutPanel4);
-            this.panel2.Location = new System.Drawing.Point(24, 314);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 124);
-            this.panel2.TabIndex = 23;
-            // 
-            // button8
-            // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.BackColor = System.Drawing.SystemColors.Window;
-            this.button8.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Blue;
-            this.button8.Location = new System.Drawing.Point(92, 72);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(96, 40);
-            this.button8.TabIndex = 23;
-            this.button8.Text = "Delete";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.75676F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.24324F));
-            this.tableLayoutPanel4.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.IdDel, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 19);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(185, 38);
-            this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 38);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "ID";
-            // 
-            // IdDel
-            // 
-            this.IdDel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.IdDel.Location = new System.Drawing.Point(71, 3);
-            this.IdDel.Name = "IdDel";
-            this.IdDel.Size = new System.Drawing.Size(111, 20);
-            this.IdDel.TabIndex = 1;
-            // 
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -555,10 +461,7 @@
             this.Controls.Add(this.edpanbt);
             this.Controls.Add(this.addpan);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Evaluation";
             this.Text = "Evaluation";
@@ -572,9 +475,6 @@
             this.edpanbt.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.ResumeLayout(false);
@@ -610,13 +510,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox IdDel;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label10;
     }

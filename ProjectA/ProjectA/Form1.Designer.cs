@@ -34,15 +34,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.stuId = new System.Windows.Forms.TextBox();
-            this.regNo = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -86,9 +77,6 @@
             this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.StudentGrid)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.updatepan.SuspendLayout();
@@ -177,103 +165,6 @@
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = false;
             this.Add.Click += new System.EventHandler(this.Add_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Location = new System.Drawing.Point(540, 469);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(177, 80);
-            this.panel2.TabIndex = 7;
-            // 
-            // button5
-            // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.SystemColors.Window;
-            this.button5.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Navy;
-            this.button5.Location = new System.Drawing.Point(42, 18);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(103, 43);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "AddRegNo";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.tableLayoutPanel2);
-            this.panel4.Controls.Add(this.button4);
-            this.panel4.Location = new System.Drawing.Point(128, 409);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(297, 155);
-            this.panel4.TabIndex = 8;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.stuId, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.regNo, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(204, 108);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ID";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "RegNo";
-            // 
-            // stuId
-            // 
-            this.stuId.Location = new System.Drawing.Point(105, 3);
-            this.stuId.Name = "stuId";
-            this.stuId.Size = new System.Drawing.Size(94, 20);
-            this.stuId.TabIndex = 2;
-            // 
-            // regNo
-            // 
-            this.regNo.Location = new System.Drawing.Point(105, 57);
-            this.regNo.Name = "regNo";
-            this.regNo.Size = new System.Drawing.Size(94, 20);
-            this.regNo.TabIndex = 3;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.Window;
-            this.button4.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Navy;
-            this.button4.Location = new System.Drawing.Point(127, 117);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 38);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel5
             // 
@@ -467,7 +358,6 @@
             // 
             // updatepan
             // 
-            this.updatepan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.updatepan.Controls.Add(this.tableLayoutPanel5);
             this.updatepan.Controls.Add(this.update);
             this.updatepan.Location = new System.Drawing.Point(204, 81);
@@ -497,7 +387,7 @@
             this.tableLayoutPanel5.Controls.Add(this.dobu, 1, 5);
             this.tableLayoutPanel5.Controls.Add(this.label18, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.RegTbu, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(188, 29);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(66, 28);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 8;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.2549F));
@@ -546,6 +436,9 @@
             // 
             // mailu
             // 
+            this.mailu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mailu.Location = new System.Drawing.Point(103, 95);
             this.mailu.Name = "mailu";
             this.mailu.Size = new System.Drawing.Size(94, 20);
@@ -564,10 +457,14 @@
             // 
             // conu
             // 
+            this.conu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.conu.Location = new System.Drawing.Point(103, 72);
             this.conu.Name = "conu";
             this.conu.Size = new System.Drawing.Size(94, 20);
             this.conu.TabIndex = 8;
+            this.conu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.conu_KeyPress);
             // 
             // label16
             // 
@@ -582,10 +479,14 @@
             // 
             // lnu
             // 
+            this.lnu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lnu.Location = new System.Drawing.Point(103, 49);
             this.lnu.Name = "lnu";
             this.lnu.Size = new System.Drawing.Size(94, 20);
             this.lnu.TabIndex = 7;
+            this.lnu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lnu_KeyPress);
             // 
             // label17
             // 
@@ -600,13 +501,20 @@
             // 
             // fnu
             // 
+            this.fnu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fnu.Location = new System.Drawing.Point(103, 26);
             this.fnu.Name = "fnu";
             this.fnu.Size = new System.Drawing.Size(94, 20);
             this.fnu.TabIndex = 6;
+            this.fnu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fnu_KeyPress);
             // 
             // genu
             // 
+            this.genu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.genu.FormattingEnabled = true;
             this.genu.Items.AddRange(new object[] {
             "Male",
@@ -618,6 +526,9 @@
             // 
             // dobu
             // 
+            this.dobu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dobu.Location = new System.Drawing.Point(103, 118);
             this.dobu.Name = "dobu";
             this.dobu.Size = new System.Drawing.Size(94, 20);
@@ -636,6 +547,9 @@
             // 
             // RegTbu
             // 
+            this.RegTbu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RegTbu.Location = new System.Drawing.Point(103, 3);
             this.RegTbu.Name = "RegTbu";
             this.RegTbu.Size = new System.Drawing.Size(94, 20);
@@ -757,22 +671,16 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(800, 561);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.updatepan);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel5);
             this.Name = "Display";
             this.Text = "FYP Managment App";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.StudentGrid)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -793,15 +701,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.Panel AddStudent;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox stuId;
-        private System.Windows.Forms.TextBox regNo;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;

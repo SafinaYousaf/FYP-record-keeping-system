@@ -23,10 +23,8 @@ C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\EntityFrame
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csproj.CopyComplete
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.welcome.resources
-C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.EditDelForm.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Advisorr.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Project.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.ProjectAdvisor.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Evaluation.resources
-C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Update.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csprojAssemblyReference.cache

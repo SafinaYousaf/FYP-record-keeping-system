@@ -14,8 +14,7 @@ namespace ProjectA
 {
     public partial class Display : Form
     {
-        EditDelForm addstu = new EditDelForm();
-       // SqlCommandBuilder cmbdl;
+        
         SqlDataAdapter da;
         SqlConnection con = new SqlConnection(@"Data Source=SAVIRAYOUSAF;Initial Catalog=ProjectA;MultipleActiveResultSets=true;Integrated Security=True");
         public Display()
@@ -76,9 +75,9 @@ namespace ProjectA
                 if (result == DialogResult.Yes)
                 {
                     panel1.Hide();
-                    panel2.Hide();
+                    //panel2.Hide();
                     //panel6.Hide();
-                    panel4.Hide();
+                    //panel4.Hide();
                     //panel3.Hide();
                     AddStudent.Hide();
                     panel5.Hide();
@@ -198,12 +197,12 @@ namespace ProjectA
 
             //handling panels
 
-            panel4.Hide();
+            //panel4.Hide();
             //panel3.Hide();
             AddStudent.Hide();
             panel5.Hide();
             panel1.Show();
-            panel2.Show();
+            //panel2.Show();
            // panel3.Show();
         }
         private void Delete()
@@ -239,27 +238,25 @@ namespace ProjectA
         {
             disp_data();
             panel1.Show();
-            panel2.Hide();
-            panel4.Hide();
-            //panel3.Show();
+            
             AddStudent.Hide();
             updatepan.Hide();
             panel5.Hide();
 
-            //panel6.Hide();
+            
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             updatepan.Hide();
-            panel2.Hide();
-            panel4.Hide();
+            //panel2.Hide();
+            //panel4.Hide();
             AddStudent.Hide();
             panel5.Hide();
             panel1.Show();
             //panel3.Show();
-            panel2.Show();
+            //panel2.Show();
             //disp_data();
         }
 
@@ -273,9 +270,9 @@ namespace ProjectA
             //addstu.Show();
             updatepan.Hide();
             panel1.Hide();
-            panel2.Hide();
+            //panel2.Hide();
             //panel6.Hide();
-            panel4.Hide();
+            //panel4.Hide();
             //panel3.Hide();
             AddStudent.Hide();
             panel5.Show();
@@ -331,14 +328,15 @@ namespace ProjectA
             //panel6.Hide();
             AddStudent.Hide();
             panel1.Show();
-            panel2.Show();
+            //panel2.Show();
             //panel3.Show();
-            panel4.Show();
+            //panel4.Show();
             
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            /*
             con.Open();
             SqlCommand check_User_Name = new SqlCommand("SELECT ID FROM Student WHERE ([ID] = @ID)", con);
            // SqlCommand check_User_Name = new SqlCommand("SELECT * FROM Table WHERE ([user] = @user)", conn);
@@ -369,6 +367,7 @@ namespace ProjectA
 
                 
             }
+            */
             
         }
         int value;
@@ -397,15 +396,40 @@ namespace ProjectA
         private void button6_Click(object sender, EventArgs e)
         {
             con.Close();
+            con.Open();
             string emailPattern = @"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"; // Email address pattern
             string phonePattern = @"^03[0-9]{9}$";
             string RegNopat = @"^[0-9]{4}-{1}[A-Z]{2}-{1}[0-9]{3}$";
+            string namepat = @"^[A-Z]{1}[a-zA-Z\s\'-]*$";
             bool isEmailValid = Regex.IsMatch(email.Text, emailPattern);
             bool isPhoneValid = Regex.IsMatch(Cont.Text, phonePattern);
             bool isRegNoValid = Regex.IsMatch(rno.Text, RegNopat);
-            if (string.IsNullOrWhiteSpace(Fname.Text) || string.IsNullOrWhiteSpace(email.Text))
+            bool isFNameValid = Regex.IsMatch(Fname.Text, namepat);
+            bool isLNameValid = Regex.IsMatch(Lname.Text, namepat);
+            SqlCommand cmd1 = new SqlCommand("SELECT * FROM PERSON WHERE Email = '"+email.Text+"'",con);
+            SqlDataReader reader = cmd1.ExecuteReader();
+            if(reader.HasRows)
             {
+                con.Close();
+                MessageBox.Show("Email alredy exists.");
+                //panel4.Hide();
+                //panel3.Hide();
+                AddStudent.Hide();
+                panel5.Show();
+                panel1.Hide();
+                //panel2.Hide();
+            }
+            
+            else if (string.IsNullOrWhiteSpace(Fname.Text) || string.IsNullOrWhiteSpace(email.Text))
+            {
+                con.Close();
                 MessageBox.Show("Firstname and email is compulsory.");
+               // panel4.Hide();
+                //panel3.Hide();
+                AddStudent.Hide();
+                panel5.Show();
+                panel1.Hide();
+                //panel2.Hide();
             }
 
             else
@@ -413,26 +437,39 @@ namespace ProjectA
                 // Now you can check the result   
                 if (!isEmailValid)
                 {
+                    con.Close();
                     MessageBox.Show("Please enter a valid email");
-                    panel4.Hide();
+                    //panel4.Hide();
                     //panel3.Hide();
                     AddStudent.Hide();
                     panel5.Show();
                     panel1.Hide();
-                    panel2.Hide();
+                    //panel2.Hide();
                     //panel3.Hide();
                 }
                 else if (!isRegNoValid)
                 {
+                    con.Close();
                     MessageBox.Show("please enter valid RegNo number");
-                    panel4.Hide();
+                    //panel4.Hide();
                     //panel3.Hide();
                     AddStudent.Hide();
                     panel5.Show();
                     panel1.Hide();
-                    panel2.Hide();
+                    //panel2.Hide();
                     //panel3.Hide();
 
+                }
+                else if(!isFNameValid || !isLNameValid)
+                {
+                    con.Close();
+                    MessageBox.Show("please enter valid Name.");
+                   // panel4.Hide();
+                    //panel3.Hide();
+                    AddStudent.Hide();
+                    panel5.Show();
+                    panel1.Hide();
+                    //panel2.Hide();
                 }
                 else
                 {
@@ -471,53 +508,16 @@ namespace ProjectA
                         con.Close();
                         MessageBox.Show("Something Went wrong.");
                     }
-                    /*
-                    cmd = new SqlCommand("SELECT Id FROM PERSON WHERE (Id = SCOPE_IDENTITY())", con);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    string id;
-                    int t = 0;
-                    while (reader.HasRows)
-                    {
-                        
-                        id = reader[0].ToString();
-                        try
-                        {
-                            con.Open();
-                            cmd = new SqlCommand("INSERT INTO STUDENT(Id, RegistrationNo) values('" + id + "','" + rno.Text + "');", con);
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Data Inserted Successfully1");
-                            con.Close();
-                            t = 1;
-                            
-                        }
-                        
-                        catch
-                        {
-                            MessageBox.Show("Someting went wrong.");
-                        }
-                        if (t == 0)
-                        {
-                            MessageBox.Show("niiii");
-                        }
-
-                    }
-                    */
-                    /*
-                    cmd.ExecuteNonQuery();
-                    var val = cmd.ExecuteScalar().ToString();
-                    int val1 = int.Parse(val);
-                    con.Close();
-                    con.Open();
-                    cmd = new SqlCommand("INSERT INTO STUDENT()", con);
-                    */
+                    
                     con.Close();
                     MessageBox.Show("Data Inserted Successfully2");
                     this.Hide();
-                    Display obj = new Display();
-                    obj.Show();
+                    Display obj1 = new Display();
+                    obj1.Show();
                 }
+               
 
-                //handling panels
+                /*//handling panels
 
                 panel4.Hide();
                 //panel3.Hide();
@@ -525,7 +525,7 @@ namespace ProjectA
                 panel5.Hide();
                 panel1.Show();
                 panel2.Show();
-                //panel3.Show();
+                //panel3.Show();*/
             }
 
         }
@@ -601,13 +601,13 @@ namespace ProjectA
             //edf.Show();
             
             
-            panel4.Hide();
+            //panel4.Hide();
             
             AddStudent.Hide();
             panel5.Hide();
             panel1.Show();
             //panel3.Show();
-            panel2.Show();
+            //panel2.Show();
             //panel6.Show();
         }
 
@@ -653,55 +653,120 @@ namespace ProjectA
 
         private void update_Click_1(object sender, EventArgs e)
         {
+            con.Close();
             
-            con.Open();
-            int index = StudentGrid.CurrentCell.RowIndex;
-            StudentGrid.Rows[index].Selected = true;
-            string id = StudentGrid.SelectedCells[0].Value.ToString();
-            
-                //UPDATE Advisor SET Designation = '" + g + "', Salary = '" + Salary.Text + "' WHERE ID = '" + ID.Text + "';
-                SqlCommand cmd = new SqlCommand("UPDATE PERSON SET FirstName = @FirstName,LastName = @LastName ,Contact = @Contact,Email = @Email,DateOfBirth = @DateOfBirth,Gender = @Gender WHERE Id ='" + id + "';", con);
-                cmd.Parameters.AddWithValue("@FirstName", fnu.Text);
-                cmd.Parameters.AddWithValue("@LastName", lnu.Text);
-                cmd.Parameters.AddWithValue("@Contact", conu.Text);
-                cmd.Parameters.AddWithValue("@Email", mailu.Text);
-                cmd.Parameters.AddWithValue("@DateOfBirth", DateTime.Parse(dobu.Text));
-                string genn = Genderr.Text.ToString();
-                int g = Gender_look(genn);
-                cmd.Parameters.AddWithValue("@Gender", g);
-                cmd.ExecuteNonQuery();
-                SqlCommand cmd2 = new SqlCommand("UPDATE STUDENT SET RegistrationNo =@regno WHERE Id ='"+id+"';", con);
-              cmd2.Parameters.AddWithValue("@regno", RegTbu.Text);
-           // cmd.Parameters.AddWithValue("@id", id);
-            cmd2.ExecuteNonQuery();
-                con.Close();
-                this.Hide();
-                Display obj = new Display();
-                obj.Show();
-            
-            /*con.Open();
-            cmd = new SqlCommand("SELECT Id FROM Student WHERE (Id = '" + id + "')", con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            string emailPattern = @"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"; // Email address pattern
+            string phonePattern = @"^03[0-9]{9}$";
+            string RegNopat = @"^[0-9]{4}-{1}[A-Z]{2}-{1}[0-9]{3}$";
+            string namepat = @"^[A-Z]{1}[a-zA-Z\s\'-]*$";
+            bool isEmailValid = Regex.IsMatch(mailu.Text, emailPattern);
+            bool isPhoneValid = Regex.IsMatch(conu.Text, phonePattern);
+            bool isRegNoValid = Regex.IsMatch(RegTbu.Text, RegNopat);
+            bool isFNameValid = Regex.IsMatch(fnu.Text, namepat);
+            bool isLNameValid = Regex.IsMatch(lnu.Text, namepat);
+            if (string.IsNullOrWhiteSpace(fnu.Text) || string.IsNullOrWhiteSpace(mailu.Text))
             {
-                id = reader[0].ToString();
+                MessageBox.Show("Firstname and email is compulsory.");
+                panel1.Hide();
+                //panel2.Hide();
+                //panel6.Hide();
+                //panel4.Hide();
+                //panel3.Hide();
+                AddStudent.Hide();
+                panel5.Hide();
+                updatepan.Show();
+                //Update_rec();
+            }
+            else if (!isEmailValid)
+            {
+                MessageBox.Show("Please enter a valid email");
+                panel1.Hide();
+                //panel2.Hide();
+                //panel6.Hide();
+                //panel4.Hide();
+                //panel3.Hide();
+                AddStudent.Hide();
+                panel5.Hide();
+                updatepan.Show();
+                //Update_rec();
+
+            }
+            else if (!isRegNoValid)
+            {
+                MessageBox.Show("please enter valid RegNo number");
+                panel1.Hide();
+                //panel2.Hide();
+                //panel6.Hide();
+               // panel4.Hide();
+                //panel3.Hide();
+                AddStudent.Hide();
+                panel5.Hide();
+                updatepan.Show();
+                //Update_rec();
+            }
+            else if (!isFNameValid || !isLNameValid)
+            {
+                con.Close();
+                MessageBox.Show("please enter valid Name.");
+                panel1.Hide();
+                //panel2.Hide();
+                //panel6.Hide();
+                //panel4.Hide();
+                //panel3.Hide();
+                AddStudent.Hide();
+                panel5.Hide();
+                updatepan.Show();
+                //Update_rec();
+            }
+            else
+            {
+
                 try
                 {
-                    con.Open();
-                    cmd = new SqlCommand("Update STUDENT SET Id = '"+ id + "', Re'" + rno.Text + "')", con);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Data Inserted Successfully");
-                    con.Close();
-                }
 
+
+                    con.Open();
+                    int index = StudentGrid.CurrentCell.RowIndex;
+                    StudentGrid.Rows[index].Selected = true;
+                    string id = StudentGrid.SelectedCells[0].Value.ToString();
+
+                    //UPDATE Advisor SET Designation = '" + g + "', Salary = '" + Salary.Text + "' WHERE ID = '" + ID.Text + "';
+                    SqlCommand cmd = new SqlCommand("UPDATE PERSON SET FirstName = @FirstName,LastName = @LastName ,Contact = @Contact,Email = @Email,DateOfBirth = @DateOfBirth,Gender = @Gender WHERE Id ='" + id + "';", con);
+                    cmd.Parameters.AddWithValue("@FirstName", fnu.Text);
+                    cmd.Parameters.AddWithValue("@LastName", lnu.Text);
+                    cmd.Parameters.AddWithValue("@Contact", conu.Text);
+                    cmd.Parameters.AddWithValue("@Email", mailu.Text);
+                    cmd.Parameters.AddWithValue("@DateOfBirth", DateTime.Parse(dobu.Text));
+                    string genn = Genderr.Text.ToString();
+                    int g = Gender_look(genn);
+                    cmd.Parameters.AddWithValue("@Gender", g);
+                    cmd.ExecuteNonQuery();
+                    try
+                    {
+
+
+                        SqlCommand cmd2 = new SqlCommand("UPDATE STUDENT SET RegistrationNo =@regno WHERE Id ='" + id + "';", con);
+                        cmd2.Parameters.AddWithValue("@regno", RegTbu.Text);
+                        // cmd.Parameters.AddWithValue("@id", id);
+                        cmd2.ExecuteNonQuery();
+                        con.Close();
+                        this.Hide();
+                        Display obj = new Display();
+                        obj.Show();
+                    }
+                    catch
+                    {
+                        con.Close();
+                    }
+                }
                 catch
                 {
-                    MessageBox.Show("Someting went wrong.");
+                    con.Close();
+                    MessageBox.Show("Something went wrong.");
                 }
-               
             }
-        */
-            }
+            con.Close();
+        }
 
         private void button9_Click(object sender, EventArgs e)
         {
@@ -750,6 +815,57 @@ namespace ProjectA
         {
             Evaluation evalfm = new Evaluation();
             evalfm.Show();
+        }
+
+        private void conu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8)
+            {
+
+
+                e.Handled = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Please Enter only Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                e.Handled = true;
+
+            }
+        }
+
+        private void fnu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
+            {
+
+
+                e.Handled = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Please Enter only Alphabets.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                e.Handled = true;
+
+            }
+        }
+
+        private void lnu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
+            {
+
+
+                e.Handled = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Please Enter only Alphabets.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                e.Handled = true;
+
+            }
         }
     }
 }

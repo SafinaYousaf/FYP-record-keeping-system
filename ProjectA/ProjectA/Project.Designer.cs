@@ -47,13 +47,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.IDdel = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.Delete = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
@@ -63,8 +56,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -249,6 +240,7 @@
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(112, 20);
             this.Title.TabIndex = 3;
+            this.Title.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Title_KeyPress);
             // 
             // label1
             // 
@@ -334,94 +326,10 @@
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.36527F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.63473F));
-            this.tableLayoutPanel3.Controls.Add(this.IDdel, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(20, 25);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(167, 47);
-            this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // IDdel
-            // 
-            this.IDdel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.IDdel.Location = new System.Drawing.Point(32, 3);
-            this.IDdel.Name = "IDdel";
-            this.IDdel.Size = new System.Drawing.Size(132, 20);
-            this.IDdel.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 47);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "ID";
-            // 
-            // button7
-            // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.BackColor = System.Drawing.SystemColors.Window;
-            this.button7.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(-153, -8);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(96, 36);
-            this.button7.TabIndex = 15;
-            this.button7.Text = "Edit";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.BackColor = System.Drawing.SystemColors.Window;
-            this.button6.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(-114, -8);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(97, 36);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "Delete";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // Delete
-            // 
-            this.Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Delete.BackColor = System.Drawing.SystemColors.Window;
-            this.Delete.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Delete.Location = new System.Drawing.Point(87, -8);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(97, 36);
-            this.Delete.TabIndex = 13;
-            this.Delete.Text = "Delete";
-            this.Delete.UseVisualStyleBackColor = false;
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel4.Controls.Add(this.Delete);
-            this.panel4.Controls.Add(this.button6);
-            this.panel4.Controls.Add(this.button7);
-            this.panel4.Controls.Add(this.tableLayoutPanel3);
-            this.panel4.Location = new System.Drawing.Point(754, 406);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(23, 45);
-            this.panel4.TabIndex = 11;
-            // 
             // panel6
             // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.button4);
@@ -453,7 +361,6 @@
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -468,9 +375,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.ResumeLayout(false);
@@ -498,13 +402,6 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TextBox IDdel;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button Delete;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label10;
     }

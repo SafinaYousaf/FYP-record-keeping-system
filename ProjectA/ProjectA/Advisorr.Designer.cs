@@ -190,6 +190,7 @@
             this.Salary.Size = new System.Drawing.Size(90, 29);
             this.Salary.TabIndex = 8;
             this.Salary.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Salary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Salary_KeyPress);
             // 
             // Genderr
             // 
@@ -201,7 +202,7 @@
             "Assisstant Professor",
             "Lecturer",
             "Industry Professional"});
-            this.Genderr.Location = new System.Drawing.Point(102, 55);
+            this.Genderr.Location = new System.Drawing.Point(102, 51);
             this.Genderr.Margin = new System.Windows.Forms.Padding(4);
             this.Genderr.Name = "Genderr";
             this.Genderr.Size = new System.Drawing.Size(90, 30);

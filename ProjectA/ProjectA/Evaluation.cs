@@ -49,13 +49,10 @@ namespace ProjectA
         }
         private void button10_Click(object sender, EventArgs e)
         {
-            Evaluation evalfm = new Evaluation();
-            evalfm.Show();
-            addpan.Hide();
             edpanbt.Hide();
-            panel2.Hide();
+            addpan.Hide();
+
             panel1.Show();
-            //disp_data();
 
         }
 
@@ -63,7 +60,7 @@ namespace ProjectA
         {
             edpanbt.Hide();
             addpan.Hide();
-            panel2.Hide();
+            
             panel1.Show();
             disp_data();
         }
@@ -71,7 +68,7 @@ namespace ProjectA
         private void button4_Click(object sender, EventArgs e)
         {
             panel1.Hide();
-            panel2.Hide();
+            //panel2.Hide();
             edpanbt.Hide();
             addpan.Show();
             
@@ -85,7 +82,7 @@ namespace ProjectA
         private void button2_Click(object sender, EventArgs e)
         {
             panel1.Hide();
-            panel2.Hide();
+            ///panel2.Hide();
             addpan.Hide();
             edpanbt.Show();
         }
@@ -112,6 +109,9 @@ namespace ProjectA
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Data Inserted Successfully");
+                this.Hide();
+                Evaluation eval = new Evaluation();
+                eval.Show();
             }
         }
 
@@ -125,7 +125,7 @@ namespace ProjectA
         {
             addpan.Hide();
             edpanbt.Hide();
-            panel2.Show();
+            //panel2.Show();
             panel1.Show();
             //disp_data();
         }
@@ -133,10 +133,10 @@ namespace ProjectA
         
         
         private void button8_Click(object sender, EventArgs e)
-        {
+        {/*
             con.Open();
             SqlCommand check_User_Name = new SqlCommand("SELECT ID FROM Evaluation WHERE ([ID] = @ID)", con);
-            check_User_Name.Parameters.AddWithValue("ID", IdDel.Text);
+            check_User_Name.Parameters.AddWithValue("ID", //IdDel.Text);
             SqlDataReader reader = check_User_Name.ExecuteReader();
             if (reader.HasRows)
             {
@@ -153,6 +153,7 @@ namespace ProjectA
                 con.Close();
                 MessageBox.Show("Record does not exists.");
             }
+            */
 
         }
 
@@ -229,6 +230,10 @@ namespace ProjectA
                 evaldispGrid.Rows.RemoveAt(index);
                 evaldispGrid.DataSource = dt;
                 MessageBox.Show("Evaluation Deleted.");
+                this.Hide();
+                Evaluation evalfm = new Evaluation();
+                evalfm.Show();
+
 
             }
 
@@ -265,7 +270,7 @@ namespace ProjectA
                     {
                         
                         panel1.Hide();
-                         panel2.Hide();
+                         //panel2.Hide();
                           addpan.Hide();
                           edpanbt.Show();
                     

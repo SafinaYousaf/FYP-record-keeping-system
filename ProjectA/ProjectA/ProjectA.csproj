@@ -55,12 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddStudenForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddStudenForm.Designer.cs">
-      <DependentUpon>AddStudenForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Advisorr.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,21 +87,12 @@
       <DependentUpon>ProjectAdvisor.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Update.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Update.Designer.cs">
-      <DependentUpon>Update.cs</DependentUpon>
-    </Compile>
     <Compile Include="welcome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="welcome.Designer.cs">
       <DependentUpon>welcome.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddStudenForm.resx">
-      <DependentUpon>AddStudenForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Advisorr.resx">
       <DependentUpon>Advisorr.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,9 +117,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Update.resx">
-      <DependentUpon>Update.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="welcome.resx">
       <DependentUpon>welcome.cs</DependentUpon>
     </EmbeddedResource>
