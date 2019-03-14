@@ -15,7 +15,7 @@ namespace ProjectA
     public partial class Display : Form
     {
         EditDelForm addstu = new EditDelForm();
-        SqlCommandBuilder cmbdl;
+       // SqlCommandBuilder cmbdl;
         SqlDataAdapter da;
         SqlConnection con = new SqlConnection(@"Data Source=SAVIRAYOUSAF;Initial Catalog=ProjectA;MultipleActiveResultSets=true;Integrated Security=True");
         public Display()
@@ -30,7 +30,7 @@ namespace ProjectA
             
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT TOP(10) P.Id,P.FirstName,P.LastName,P.Contact,P.Email,P.DateOfBirth,P.Gender FROM Person AS P ORDER BY P.Id DESC";
+            cmd.CommandText = "SELECT TOP(10) P.Id,S.RegistrationNo,P.FirstName+' '+P.LastName AS Name,P.Contact,P.Email,P.DateOfBirth,P.Gender FROM Person AS P JOIN STUDENT AS S ON S.Id = P.Id ORDER BY P.Id DESC";
             cmd.ExecuteNonQuery();
             //DataTable dt = new DataTable();
             da = new SqlDataAdapter(cmd);
@@ -44,7 +44,7 @@ namespace ProjectA
             btn.Text = "Delete";
             btn.Name = "btn";
             btn.UseColumnTextForButtonValue = true;
-
+            //update
             DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
             StudentGrid.Columns.Add(btn1);
             btn1.HeaderText = "Update";
@@ -77,9 +77,9 @@ namespace ProjectA
                 {
                     panel1.Hide();
                     panel2.Hide();
-                    panel6.Hide();
+                    //panel6.Hide();
                     panel4.Hide();
-                    panel3.Hide();
+                    //panel3.Hide();
                     AddStudent.Hide();
                     panel5.Hide();
                     updatepan.Show();
@@ -112,26 +112,10 @@ namespace ProjectA
                 StudentGrid.Rows.RemoveAt(index);
                 StudentGrid.DataSource = dt;
                 MessageBox.Show("Chal gya");
-                /*                MessageBox.Show("Candidate id " + id + " deleted successfully!");
-                                while (reader.Read())
-                                {
-                                    id = reader[0].ToString();
-                                    try
-                                    {
-                                        con = new SqlCommand(" DELETE FROM Person WHERE Candidate_Id = '" + id + "';", con);
-                                        con.ExecuteNonQuery();
-                                        StudentGrid.Rows.RemoveAt(index);
-                                        StudentGrid.DataSource = dt;
-                                        MessageBox.Show("Candidate id " + id + " deleted successfully!");
-                                    }
-
-                                    catch
-                                    {
-                                        con = new SqlCommand("ROLLBACK TRANSACTION TR2");
-                                        con.ExecuteNonQuery();
-                                    }
-
-                                }*/
+                this.Hide();
+                Display obj = new Display();
+                obj.Show();
+                
             }
 
             catch
@@ -206,7 +190,7 @@ namespace ProjectA
                 */
                 catch
                 {
-                    MessageBox.Show("iojuiheirug");
+                    MessageBox.Show("Someting went wrong.");
                 }
                 MessageBox.Show("Data Inserted Successfully");
             }
@@ -214,15 +198,16 @@ namespace ProjectA
             //handling panels
 
             panel4.Hide();
-            panel3.Hide();
+            //panel3.Hide();
             AddStudent.Hide();
             panel5.Hide();
             panel1.Show();
             panel2.Show();
-            panel3.Show();
+           // panel3.Show();
         }
         private void Delete()
         {
+            con.Close();
             con.Open();
 
             int index = StudentGrid.CurrentCell.RowIndex;
@@ -232,16 +217,20 @@ namespace ProjectA
             {
                 
                 SqlCommand cmd = new SqlCommand(" DELETE FROM STUDENT WHERE Id = '" + id + "';", con);
+
+                cmd.ExecuteNonQuery();
+                cmd = new SqlCommand(" DELETE FROM Person WHERE Id = '" + id + "';", con);
+
                 cmd.ExecuteNonQuery();
                 StudentGrid.Rows.RemoveAt(index);
                 StudentGrid.DataSource = dt;
-                MessageBox.Show("Chal gya");
+                MessageBox.Show("Student Deleted.");
                 
             }
 
             catch
             {
-                MessageBox.Show("Naaaaaaaahi hua");
+                MessageBox.Show("Something went wrong.");
             }
             con.Close();
         }
@@ -251,11 +240,12 @@ namespace ProjectA
             panel1.Show();
             panel2.Hide();
             panel4.Hide();
-            panel3.Hide();
+            //panel3.Show();
             AddStudent.Hide();
             updatepan.Hide();
             panel5.Hide();
-            panel6.Hide();
+
+            //panel6.Hide();
 
         }
 
@@ -267,7 +257,7 @@ namespace ProjectA
             AddStudent.Hide();
             panel5.Hide();
             panel1.Show();
-            panel3.Show();
+            //panel3.Show();
             panel2.Show();
             //disp_data();
         }
@@ -283,9 +273,9 @@ namespace ProjectA
             updatepan.Hide();
             panel1.Hide();
             panel2.Hide();
-            panel6.Hide();
+            //panel6.Hide();
             panel4.Hide();
-            panel3.Hide();
+            //panel3.Hide();
             AddStudent.Hide();
             panel5.Show();
 
@@ -335,13 +325,13 @@ namespace ProjectA
 
         private void button5_Click(object sender, EventArgs e)
         {
-            disp_data();
+            
             panel5.Hide();
-            panel6.Hide();
+            //panel6.Hide();
             AddStudent.Hide();
             panel1.Show();
             panel2.Show();
-            panel3.Show();
+            //panel3.Show();
             panel4.Show();
             
         }
@@ -378,16 +368,7 @@ namespace ProjectA
 
                 
             }
-            /*
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into Student values('" + stuId.Text + "','" + regNo.Text + "')";
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            //Message box
-            MessageBox.Show("Inserted");
-            */
+            
         }
         int value;
         private int Gender_look(string gen)
@@ -414,6 +395,7 @@ namespace ProjectA
         }
         private void button6_Click(object sender, EventArgs e)
         {
+            con.Close();
             string emailPattern = @"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"; // Email address pattern
             string phonePattern = @"^03[0-9]{9}$";
             string RegNopat = @"^[0-9]{4}-{1}[A-Z]{2}-{1}[0-9]{3}$";
@@ -432,62 +414,93 @@ namespace ProjectA
                 {
                     MessageBox.Show("Please enter a valid email");
                     panel4.Hide();
-                    panel3.Hide();
+                    //panel3.Hide();
                     AddStudent.Hide();
                     panel5.Show();
                     panel1.Hide();
                     panel2.Hide();
-                    panel3.Hide();
+                    //panel3.Hide();
                 }
                 else if (!isRegNoValid)
                 {
                     MessageBox.Show("please enter valid RegNo number");
                     panel4.Hide();
-                    panel3.Hide();
+                    //panel3.Hide();
                     AddStudent.Hide();
                     panel5.Show();
                     panel1.Hide();
                     panel2.Hide();
-                    panel3.Hide();
+                    //panel3.Hide();
 
                 }
                 else
                 {
-                    con.Open();
-                    SqlCommand cmd = con.CreateCommand();
-                    cmd = new SqlCommand("INSERT INTO PERSON(FirstName,LastName,Contact,Email,DateOfBirth,Gender) VALUES(@FirstName,@LastName,@Contact,@Email,@DateofBirth,@Gender)", con);
-                    cmd.Parameters.AddWithValue("@FirstName", Fname.Text);
-                    cmd.Parameters.AddWithValue("@LastName", Lname.Text);
-                    cmd.Parameters.AddWithValue("@Contact", Cont.Text);
-                    cmd.Parameters.AddWithValue("@Email", email.Text);
-                    cmd.Parameters.AddWithValue("@DateOfBirth", DateTime.Parse(dob.Text));
-                    string genn = Genderr.Text.ToString();
-                    int g = Gender_look(genn);
-                    cmd.Parameters.AddWithValue("@Gender", g);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    con.Open();
+                    try
+                    {
+                        con.Close();
+                        con.Open();
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd = new SqlCommand("INSERT INTO PERSON(FirstName,LastName,Contact,Email,DateOfBirth,Gender) VALUES(@FirstName,@LastName,@Contact,@Email,@DateofBirth,@Gender);SELECT SCOPE_IDENTITY();", con);
+                        cmd.Parameters.AddWithValue("@FirstName", Fname.Text);
+                        cmd.Parameters.AddWithValue("@LastName", Lname.Text);
+                        cmd.Parameters.AddWithValue("@Contact", Cont.Text);
+                        cmd.Parameters.AddWithValue("@Email", email.Text);
+                        cmd.Parameters.AddWithValue("@DateOfBirth", DateTime.Parse(dob.Text));
+                        string genn = Genderr.Text.ToString();
+                        int g = Gender_look(genn);
+                        cmd.Parameters.AddWithValue("@Gender", g);
+                        //cmd.ExecuteNonQuery();
+                        int modified = Convert.ToInt32(cmd.ExecuteScalar());
+                        try
+                        {
+
+                            cmd = new SqlCommand("INSERT INTO STUDENT(Id, RegistrationNo) values('" + modified + "','" + rno.Text + "');", con);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        catch {
+                            con.Close();
+                            MessageBox.Show("something went wrong.");
+                        }
+                        MessageBox.Show("Data Inserted Successfully");
+
+                    }
+                    catch
+                    {
+                        con.Close();
+                        MessageBox.Show("Something Went wrong.");
+                    }
+                    /*
                     cmd = new SqlCommand("SELECT Id FROM PERSON WHERE (Id = SCOPE_IDENTITY())", con);
                     SqlDataReader reader = cmd.ExecuteReader();
                     string id;
-                    while (reader.Read())
+                    int t = 0;
+                    while (reader.HasRows)
                     {
+                        
                         id = reader[0].ToString();
                         try
                         {
                             con.Open();
-                            cmd = new SqlCommand("INSERT INTO STUDENT('" + id + "','" + rno.Text + "')", con);
+                            cmd = new SqlCommand("INSERT INTO STUDENT(Id, RegistrationNo) values('" + id + "','" + rno.Text + "');", con);
                             cmd.ExecuteNonQuery();
-                            MessageBox.Show("Data Inserted Successfully");
+                            MessageBox.Show("Data Inserted Successfully1");
                             con.Close();
+                            t = 1;
+                            
                         }
-
+                        
                         catch
                         {
                             MessageBox.Show("Someting went wrong.");
                         }
+                        if (t == 0)
+                        {
+                            MessageBox.Show("niiii");
+                        }
 
                     }
+                    */
                     /*
                     cmd.ExecuteNonQuery();
                     var val = cmd.ExecuteScalar().ToString();
@@ -496,18 +509,22 @@ namespace ProjectA
                     con.Open();
                     cmd = new SqlCommand("INSERT INTO STUDENT()", con);
                     */
-                    MessageBox.Show("Data Inserted Successfully");
+                    con.Close();
+                    MessageBox.Show("Data Inserted Successfully2");
+                    this.Hide();
+                    Display obj = new Display();
+                    obj.Show();
                 }
 
                 //handling panels
 
                 panel4.Hide();
-                panel3.Hide();
+                //panel3.Hide();
                 AddStudent.Hide();
                 panel5.Hide();
                 panel1.Show();
                 panel2.Show();
-                panel3.Show();
+                //panel3.Show();
             }
 
         }
@@ -588,14 +605,14 @@ namespace ProjectA
             AddStudent.Hide();
             panel5.Hide();
             panel1.Show();
-            panel3.Show();
+            //panel3.Show();
             panel2.Show();
-            panel6.Show();
+            //panel6.Show();
         }
 
         private void button7_Click(object sender, EventArgs e)
         { 
-            con.Open();
+            /*con.Open();
             SqlCommand check_User_Name = new SqlCommand("SELECT ID FROM Student WHERE ([ID] = @ID)", con);
             
             check_User_Name.Parameters.AddWithValue("ID", DEid.Text);
@@ -624,6 +641,7 @@ namespace ProjectA
 
 
             }
+            */
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -634,24 +652,32 @@ namespace ProjectA
 
         private void update_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show("yes");
+            
             con.Open();
             int index = StudentGrid.CurrentCell.RowIndex;
             StudentGrid.Rows[index].Selected = true;
-            string id = StudentGrid.SelectedCells[1].Value.ToString();
+            string id = StudentGrid.SelectedCells[0].Value.ToString();
             
-            //UPDATE Advisor SET Designation = '" + g + "', Salary = '" + Salary.Text + "' WHERE ID = '" + ID.Text + "';
-            SqlCommand cmd = new SqlCommand("UPDATE PERSON SET FirstName = @FirstName,LastName = @LastName ,Contact = @Contact,Email = @Email,DateOfBirth = @DateOfBirth,Gender = @Gender ", con);
-            cmd.Parameters.AddWithValue("@FirstName", fnu.Text);
-            cmd.Parameters.AddWithValue("@LastName", lnu.Text);
-            cmd.Parameters.AddWithValue("@Contact", conu.Text);
-            cmd.Parameters.AddWithValue("@Email", mailu.Text);
-            cmd.Parameters.AddWithValue("@DateOfBirth", DateTime.Parse(dobu.Text));
-            string genn = Genderr.Text.ToString();
-            int g = Gender_look(genn);
-            cmd.Parameters.AddWithValue("@Gender", g);
-            cmd.ExecuteNonQuery();
-            con.Close();
+                //UPDATE Advisor SET Designation = '" + g + "', Salary = '" + Salary.Text + "' WHERE ID = '" + ID.Text + "';
+                SqlCommand cmd = new SqlCommand("UPDATE PERSON SET FirstName = @FirstName,LastName = @LastName ,Contact = @Contact,Email = @Email,DateOfBirth = @DateOfBirth,Gender = @Gender WHERE Id ='" + id + "';", con);
+                cmd.Parameters.AddWithValue("@FirstName", fnu.Text);
+                cmd.Parameters.AddWithValue("@LastName", lnu.Text);
+                cmd.Parameters.AddWithValue("@Contact", conu.Text);
+                cmd.Parameters.AddWithValue("@Email", mailu.Text);
+                cmd.Parameters.AddWithValue("@DateOfBirth", DateTime.Parse(dobu.Text));
+                string genn = Genderr.Text.ToString();
+                int g = Gender_look(genn);
+                cmd.Parameters.AddWithValue("@Gender", g);
+                cmd.ExecuteNonQuery();
+                SqlCommand cmd2 = new SqlCommand("UPDATE STUDENT SET RegistrationNo =@regno WHERE Id ='"+id+"';", con);
+              cmd2.Parameters.AddWithValue("@regno", RegTbu.Text);
+           // cmd.Parameters.AddWithValue("@id", id);
+            cmd2.ExecuteNonQuery();
+                con.Close();
+                this.Hide();
+                Display obj = new Display();
+                obj.Show();
+            
             /*con.Open();
             cmd = new SqlCommand("SELECT Id FROM Student WHERE (Id = '" + id + "')", con);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -695,6 +721,34 @@ namespace ProjectA
             cmd.Parameters.AddWithValue("@Gender", g);
             cmd.ExecuteNonQuery();
             con.Close();
+        }
+
+        private void updatepan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Project profm = new Project();
+            profm.Show();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            ProjectAdvisor proadvfm = new ProjectAdvisor();
+            proadvfm.Show();
+        }
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+            Evaluation evalfm = new Evaluation();
+            evalfm.Show();
         }
     }
 }

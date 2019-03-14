@@ -195,7 +195,7 @@ namespace ProjectA
         {
             if (e.ColumnIndex == 3)
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this candidate?", "Candidate", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this Project?", "Project", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     Del_rec();
@@ -204,9 +204,9 @@ namespace ProjectA
             }
             if (e.ColumnIndex == 4)
             {
-                MessageBox.Show("ok");
+                
 
-                DialogResult result = MessageBox.Show("Are you sure you want to update ?", "Project", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Are you sure you want to update Project?", "Project", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     panel1.Hide();
@@ -224,29 +224,38 @@ namespace ProjectA
 
         private void update_rec()
         {
+            con.Close();
             con.Open();
-
-            int index = ProjectGrid.CurrentCell.RowIndex;
-            ProjectGrid.Rows[index].Selected = true;
-            string id = ProjectGrid.SelectedCells[0].Value.ToString();
             try
             {
-                //SqlCommand con = new SqlCommand("SELECT Id FROM STUDENT WHERE id = ", con);
-                //SqlDataReader reader = con.ExecuteReader();
-                
-                SqlCommand cmd = new SqlCommand(" Update Project SET Description = '"+ProId.Text+"', Title = '"+Title.Text+"';" , con);
-                cmd.ExecuteNonQuery();
-                ProjectGrid.Rows.RemoveAt(index);
-                ProjectGrid.DataSource = dt;
-                MessageBox.Show("Chal gya");
+                int index = ProjectGrid.CurrentCell.RowIndex;
+                ProjectGrid.Rows[index].Selected = true;
+                string id = ProjectGrid.SelectedCells[0].Value.ToString();
+                try
+                {
+                    //SqlCommand con = new SqlCommand("SELECT Id FROM STUDENT WHERE id = ", con);
+                    //SqlDataReader reader = con.ExecuteReader();
 
+                    SqlCommand cmd = new SqlCommand(" Update Project SET Description = '" + ProId.Text + "', Title = '" + Title.Text + "';", con);
+                    cmd.ExecuteNonQuery();
+                    ProjectGrid.Rows.RemoveAt(index);
+                    ProjectGrid.DataSource = dt;
+                    MessageBox.Show("Done.");
+
+                }
+
+                catch
+                {
+                    con.Close();
+                    MessageBox.Show("Can not update data.");
+                }
+                con.Close();
             }
-
             catch
             {
-                MessageBox.Show("Can not update data.");
+                con.Close();
+                MessageBox.Show("Something went wrong.");
             }
-            con.Close();
         }
         private void Del_rec()
         {
@@ -255,6 +264,7 @@ namespace ProjectA
             int index = ProjectGrid.CurrentCell.RowIndex;
             ProjectGrid.Rows[index].Selected = true;
             string id = ProjectGrid.SelectedCells[0].Value.ToString();
+            SqlCommand cmdchk = new SqlCommand("");
             try
             {
                 //SqlCommand con = new SqlCommand("SELECT Id FROM STUDENT WHERE id = ", con);
