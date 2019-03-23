@@ -15,14 +15,15 @@ namespace ProjectA
     public partial class Display : Form
     {
         
-        SqlDataAdapter da;
+        
         SqlConnection con = new SqlConnection(@"Data Source=SAVIRAYOUSAF;Initial Catalog=ProjectA;MultipleActiveResultSets=true;Integrated Security=True");
         public Display()
         {
             InitializeComponent();
         }
+        //display data for student and person table
         DataTable dt = new DataTable();
-        System.Data.DataSet ds;
+        SqlDataAdapter da;
         public void disp_data()
         {
             con.Open();
@@ -46,6 +47,38 @@ namespace ProjectA
             //update
             DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
             StudentGrid.Columns.Add(btn1);
+            btn1.HeaderText = "Update";
+            btn1.Text = "Update";
+            btn1.Name = "btn1";
+            btn1.UseColumnTextForButtonValue = true;
+
+        }
+        //Display data for GroupStydent
+        DataTable dt1 = new DataTable();
+        SqlDataAdapter da1;
+        public void disp_data_grpstu()
+        {
+            con.Open();
+
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT TOP(10) * FROM [GROUPSTUDENT] ORDER BY GroupId DESC";
+            cmd.ExecuteNonQuery();
+            //DataTable dt = new DataTable();
+            da1 = new SqlDataAdapter(cmd);
+            da1.Fill(dt1);
+            GrpStudisp.DataSource = dt1; //Student is name of data grid view present on form
+            con.Close();
+            //delete buttons
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            GrpStudisp.Columns.Add(btn);
+            btn.HeaderText = "Delete";
+            btn.Text = "Delete";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+            //update
+            DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
+            GrpStudisp.Columns.Add(btn1);
             btn1.HeaderText = "Update";
             btn1.Text = "Update";
             btn1.Name = "btn1";
@@ -79,7 +112,7 @@ namespace ProjectA
                     //panel6.Hide();
                     //panel4.Hide();
                     //panel3.Hide();
-                    AddStudent.Hide();
+                    //AddStudent.Hide();
                     panel5.Hide();
                     updatepan.Show();
                     //Update_rec();
@@ -199,12 +232,17 @@ namespace ProjectA
 
             //panel4.Hide();
             //panel3.Hide();
-            AddStudent.Hide();
+            //AddStudent.Hide();
             panel5.Hide();
             panel1.Show();
             //panel2.Show();
            // panel3.Show();
         }
+
+
+
+
+
         private void Delete()
         {
             con.Close();
@@ -237,27 +275,33 @@ namespace ProjectA
         private void Form1_Load(object sender, EventArgs e)
         {
             disp_data();
+            upgrpstu.Hide();
+            //GrpStudisp.Hide(); 
+            disp_data_grpstu();
             panel1.Show();
-            
-            AddStudent.Hide();
+            GroupStudentPan.Hide();
+            GroupStudentPan.Hide();
+            //AddStudent.Hide();
             updatepan.Hide();
             panel5.Hide();
-
+            stugrpdispan.Hide();
             
+            
+
+
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             updatepan.Hide();
-            //panel2.Hide();
-            //panel4.Hide();
-            AddStudent.Hide();
+            stugrpdispan.Hide();
+            upgrpstu.Hide();
+            //AddStudent.Hide();
             panel5.Hide();
             panel1.Show();
-            //panel3.Show();
-            //panel2.Show();
-            //disp_data();
+            GroupStudentPan.Hide();
+           
         }
 
         private void StudentGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -268,13 +312,14 @@ namespace ProjectA
         private void Add_Click(object sender, EventArgs e)
         {
             //addstu.Show();
+            upgrpstu.Hide();
             updatepan.Hide();
             panel1.Hide();
             //panel2.Hide();
             //panel6.Hide();
             //panel4.Hide();
             //panel3.Hide();
-            AddStudent.Hide();
+            //AddStudent.Hide();
             panel5.Show();
 
 
@@ -326,7 +371,7 @@ namespace ProjectA
             
             panel5.Hide();
             //panel6.Hide();
-            AddStudent.Hide();
+            //AddStudent.Hide();
             panel1.Show();
             //panel2.Show();
             //panel3.Show();
@@ -414,7 +459,7 @@ namespace ProjectA
                 MessageBox.Show("Email alredy exists.");
                 //panel4.Hide();
                 //panel3.Hide();
-                AddStudent.Hide();
+                //AddStudent.Hide();
                 panel5.Show();
                 panel1.Hide();
                 //panel2.Hide();
@@ -426,7 +471,7 @@ namespace ProjectA
                 MessageBox.Show("Firstname and email is compulsory.");
                // panel4.Hide();
                 //panel3.Hide();
-                AddStudent.Hide();
+                //AddStudent.Hide();
                 panel5.Show();
                 panel1.Hide();
                 //panel2.Hide();
@@ -441,7 +486,7 @@ namespace ProjectA
                     MessageBox.Show("Please enter a valid email");
                     //panel4.Hide();
                     //panel3.Hide();
-                    AddStudent.Hide();
+                    //AddStudent.Hide();
                     panel5.Show();
                     panel1.Hide();
                     //panel2.Hide();
@@ -453,7 +498,7 @@ namespace ProjectA
                     MessageBox.Show("please enter valid RegNo number");
                     //panel4.Hide();
                     //panel3.Hide();
-                    AddStudent.Hide();
+                    //AddStudent.Hide();
                     panel5.Show();
                     panel1.Hide();
                     //panel2.Hide();
@@ -466,7 +511,7 @@ namespace ProjectA
                     MessageBox.Show("please enter valid Name.");
                    // panel4.Hide();
                     //panel3.Hide();
-                    AddStudent.Hide();
+                    //AddStudent.Hide();
                     panel5.Show();
                     panel1.Hide();
                     //panel2.Hide();
@@ -603,7 +648,7 @@ namespace ProjectA
             
             //panel4.Hide();
             
-            AddStudent.Hide();
+            //AddStudent.Hide();
             panel5.Hide();
             panel1.Show();
             //panel3.Show();
@@ -672,7 +717,7 @@ namespace ProjectA
                 //panel6.Hide();
                 //panel4.Hide();
                 //panel3.Hide();
-                AddStudent.Hide();
+                //AddStudent.Hide();
                 panel5.Hide();
                 updatepan.Show();
                 //Update_rec();
@@ -685,7 +730,7 @@ namespace ProjectA
                 //panel6.Hide();
                 //panel4.Hide();
                 //panel3.Hide();
-                AddStudent.Hide();
+                //AddStudent.Hide();
                 panel5.Hide();
                 updatepan.Show();
                 //Update_rec();
@@ -699,7 +744,7 @@ namespace ProjectA
                 //panel6.Hide();
                // panel4.Hide();
                 //panel3.Hide();
-                AddStudent.Hide();
+                //AddStudent.Hide();
                 panel5.Hide();
                 updatepan.Show();
                 //Update_rec();
@@ -713,7 +758,7 @@ namespace ProjectA
                 //panel6.Hide();
                 //panel4.Hide();
                 //panel3.Hide();
-                AddStudent.Hide();
+                //AddStudent.Hide();
                 panel5.Hide();
                 updatepan.Show();
                 //Update_rec();
@@ -866,6 +911,276 @@ namespace ProjectA
                 e.Handled = true;
 
             }
+        }
+
+        private void grpstu_Click(object sender, EventArgs e)
+        {
+            updatepan.Hide();
+            upgrpstu.Hide();
+            //AddStudent.Hide();
+            panel5.Hide();
+            panel1.Hide();
+            GroupStudentPan.Hide();
+            stugrpdispan.Show();
+
+        }
+
+        private void addstugrp_Click(object sender, EventArgs e)
+        {
+            con.Close();
+           
+                con.Open();
+            SqlCommand check_User_Name0 = new SqlCommand("SELECT GroupId FROM [GroupStudent]  WHERE ([GroupId] = @GID AND [StudentId]=@SID)", con);
+            check_User_Name0.Parameters.AddWithValue("GID", grpid.Text);
+            check_User_Name0.Parameters.AddWithValue("SID", stdid.Text);
+            SqlDataReader reader0 = check_User_Name0.ExecuteReader();
+            if (reader0.HasRows)
+            {
+                MessageBox.Show("Already Exists.");
+            }
+            else
+            {
+                try
+                {
+                    SqlCommand check_User_Name = new SqlCommand("SELECT Id FROM [Group] WHERE ([Id] = @ID)", con);
+                    check_User_Name.Parameters.AddWithValue("ID", grpid.Text);
+                    SqlDataReader reader = check_User_Name.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        SqlCommand check_User_Name1 = new SqlCommand("SELECT Id FROM [Student] WHERE ([Id] = @ID)", con);
+                        check_User_Name1.Parameters.AddWithValue("ID", stdid.Text);
+                        SqlDataReader reader2 = check_User_Name1.ExecuteReader();
+                        if (reader2.HasRows)
+                        {
+                            SqlCommand check_User_Name3 = new SqlCommand("SELECT GroupId FROM [GroupStudent]  WHERE ([GroupId] = @GID AND [StudentId]=@SID)", con);
+                            check_User_Name3.Parameters.AddWithValue("GID", grpid.Text);
+                            check_User_Name3.Parameters.AddWithValue("SID", stdid.Text);
+                            SqlDataReader reader3= check_User_Name3.ExecuteReader();
+                            if (reader3.HasRows)
+                            {
+                                MessageBox.Show("ONe Student must Present in One group.");
+                            }
+                            else
+                            {
+                                SqlCommand cmd = con.CreateCommand();
+                                cmd = new SqlCommand("INSERT INTO [GroupStudent](GroupId,StudentId,[Status],AssignmentDate) VALUES(@GI,@SI,@Status,@datee);", con);
+                                cmd.Parameters.AddWithValue("@GI", grpid.Text);
+                                cmd.Parameters.AddWithValue("@SI", stdid.Text);
+                                cmd.Parameters.AddWithValue("@Status", status.Text);
+                                cmd.Parameters.AddWithValue("@datee", DateTime.Parse(datedpick.Text));
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Data inserted.");
+
+                                con.Close();
+                                this.Hide();
+                                Display obj = new Display();
+                                obj.Show();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Group does not exists.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student does not exists.");
+                    }
+                }
+                catch
+                {
+                    con.Close();
+                    MessageBox.Show("something went wrong.");
+                }
+
+            }
+            
+        }
+
+        private void status_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8)
+            {
+
+
+                e.Handled = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Please Enter only Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                e.Handled = true;
+
+            }
+        }
+
+        private void stdid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8)
+            {
+
+
+                e.Handled = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Please Enter only Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                e.Handled = true;
+
+            }
+        }
+
+        private void grpid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8)
+            {
+
+
+                e.Handled = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Please Enter only Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                e.Handled = true;
+
+            }
+        }
+
+        private void GrpStudisp_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this Group Student?", "Group Student", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        con.Close();
+                        con.Open();
+                        int index = GrpStudisp.CurrentCell.RowIndex;
+                        GrpStudisp.Rows[index].Selected = true;
+                        string id = GrpStudisp.SelectedCells[1].Value.ToString();
+                        SqlCommand cmd = new SqlCommand("DELETE FROM GroupStudent WHERE StudentId = '" + id + "';", con);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        GrpStudisp.Rows.RemoveAt(index);
+                        GrpStudisp.DataSource = dt1;
+                        MessageBox.Show("Deleted!");
+                    }
+                    catch
+                    {
+                        con.Close();
+                        MessageBox.Show("Something went wrong!");
+                    }
+                }
+                else if (result == DialogResult.No)
+                {
+                    updatepan.Hide();
+                    upgrpstu.Hide();
+                    
+                    panel5.Hide();
+                    panel1.Hide();
+                    GroupStudentPan.Hide();
+                    stugrpdispan.Show();
+                }
+            }
+            if (e.ColumnIndex == 5)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to Update this Group Student?", "GroupStudent", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+
+
+                    
+                    panel5.Hide();
+                    panel1.Hide();
+                    GroupStudentPan.Hide();
+                    stugrpdispan.Hide();
+                    upgrpstu.Show();
+                }
+                else
+                {
+                    this.Hide();
+                    Display obj = new Display();
+                    obj.Show();
+
+                }
+
+            }
+        }
+
+    
+
+        private void grpstuadd_Click(object sender, EventArgs e)
+        {
+            updatepan.Hide();
+            stugrpdispan.Hide();
+           // AddStudent.Hide();
+            panel5.Hide();
+            panel1.Hide();
+            GroupStudentPan.Show();
+            
+        }
+
+        private void grpstuadd_Click_1(object sender, EventArgs e)
+        {
+           
+            updatepan.Hide();
+            stugrpdispan.Hide();
+           
+            panel5.Hide();
+            panel1.Hide();
+            GroupStudentPan.Hide();
+            GroupStudentPan.Show();
+        }
+
+        private void upgrpstu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stugrpdispan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void GrpStudisp_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            GrpStudisp_CellContentClick(sender, e);
+        }
+
+        private void upgrdbt_Click(object sender, EventArgs e)
+        {
+            con.Close();
+            con.Open();
+            try
+            {
+                int index = GrpStudisp.CurrentCell.RowIndex;
+                GrpStudisp.Rows[index].Selected = true;
+                string id = GrpStudisp.SelectedCells[1].Value.ToString();
+                SqlCommand cmd = new SqlCommand("UPDATE [GroupStudent] SET GroupId=@GI,StudentId =@SI,Status=@Status,AssignmentDate=@datee WHERE StudentId = '" + id + "';", con);
+                cmd.Parameters.AddWithValue("@GI", GItxt.Text);
+                cmd.Parameters.AddWithValue("@SI", SItxt.Text);
+                cmd.Parameters.AddWithValue("@Status", Stxt.Text);
+                cmd.Parameters.AddWithValue("@datee", DateTime.Parse(datetx.Text));
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Data updated.");
+                
+                this.Hide();
+                Display obj = new Display();
+                obj.Show();
+
+                
+            }
+            catch
+            {
+                con.Close();
+                MessageBox.Show("Something went wrong.");
+            }
+
         }
     }
 }

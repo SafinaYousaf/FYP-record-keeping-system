@@ -51,7 +51,8 @@ namespace ProjectA
         {
             edpanbt.Hide();
             addpan.Hide();
-
+            panel2.Hide();
+            //addgrpevalpan.Hide();
             panel1.Show();
 
         }
@@ -60,17 +61,23 @@ namespace ProjectA
         {
             edpanbt.Hide();
             addpan.Hide();
-            
+            panel2.Hide();
+            //addgrpevalpan.Hide();
+            shoeGE.Hide();
             panel1.Show();
             disp_data();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             panel1.Hide();
-            //panel2.Hide();
+            panel2.Hide();
+            shoeGE.Hide();
+            //addgrpeval.Hide();
             edpanbt.Hide();
             addpan.Show();
+            
             
         }
 
@@ -285,5 +292,37 @@ namespace ProjectA
 
                 }
             }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            panel1.Hide();
+            edpanbt.Hide();
+            addpan.Hide();
+            shoeGE.Hide();
+
+            panel2.Show();
+
+           /// addgrpeval.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            panel1.Hide();
+            panel2.Hide();
+            //addgrpeval.Hide();
+            edpanbt.Hide();
+            addpan.Hide();
+            shoeGE.Show();
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void shoeGE_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

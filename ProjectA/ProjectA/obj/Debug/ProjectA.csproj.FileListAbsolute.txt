@@ -28,3 +28,4 @@ C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Pr
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.ProjectAdvisor.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Evaluation.resources
 C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.csprojAssemblyReference.cache
+C:\Users\M.ALI\Documents\GitHub\ProjectA\ProjectA\ProjectA\obj\Debug\ProjectA.Group.resources

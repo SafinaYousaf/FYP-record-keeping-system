@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.Group = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -65,6 +66,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.Group, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.button10, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.button9, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.button3, 0, 1);
@@ -72,14 +74,31 @@
             this.tableLayoutPanel2.Controls.Add(this.button2, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 98);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 5;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(128, 168);
+            this.tableLayoutPanel2.RowCount = 6;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(128, 194);
             this.tableLayoutPanel2.TabIndex = 6;
+            // 
+            // Group
+            // 
+            this.Group.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Group.BackColor = System.Drawing.SystemColors.Window;
+            this.Group.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Group.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Group.Location = new System.Drawing.Point(3, 163);
+            this.Group.Name = "Group";
+            this.Group.Size = new System.Drawing.Size(122, 28);
+            this.Group.TabIndex = 19;
+            this.Group.Text = "Group";
+            this.Group.UseVisualStyleBackColor = false;
+            this.Group.Click += new System.EventHandler(this.Group_Click);
             // 
             // button10
             // 
@@ -89,9 +108,9 @@
             this.button10.BackColor = System.Drawing.SystemColors.Window;
             this.button10.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button10.Location = new System.Drawing.Point(3, 135);
+            this.button10.Location = new System.Drawing.Point(3, 131);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(122, 30);
+            this.button10.Size = new System.Drawing.Size(122, 26);
             this.button10.TabIndex = 18;
             this.button10.Text = "Evaluation";
             this.button10.UseVisualStyleBackColor = false;
@@ -105,9 +124,9 @@
             this.button9.BackColor = System.Drawing.SystemColors.Window;
             this.button9.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button9.Location = new System.Drawing.Point(3, 102);
+            this.button9.Location = new System.Drawing.Point(3, 99);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(122, 27);
+            this.button9.Size = new System.Drawing.Size(122, 26);
             this.button9.TabIndex = 17;
             this.button9.Text = "ProjectAdvisor";
             this.button9.UseVisualStyleBackColor = false;
@@ -121,9 +140,9 @@
             this.button3.BackColor = System.Drawing.SystemColors.Window;
             this.button3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button3.Location = new System.Drawing.Point(3, 36);
+            this.button3.Location = new System.Drawing.Point(3, 35);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(122, 27);
+            this.button3.Size = new System.Drawing.Size(122, 26);
             this.button3.TabIndex = 1;
             this.button3.Text = "Advisor";
             this.button3.UseVisualStyleBackColor = false;
@@ -137,9 +156,9 @@
             this.button1.BackColor = System.Drawing.SystemColors.Window;
             this.button1.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button1.Location = new System.Drawing.Point(3, 69);
+            this.button1.Location = new System.Drawing.Point(3, 67);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 27);
+            this.button1.Size = new System.Drawing.Size(122, 26);
             this.button1.TabIndex = 7;
             this.button1.Text = "Project";
             this.button1.UseVisualStyleBackColor = false;
@@ -155,7 +174,7 @@
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.button2.Location = new System.Drawing.Point(3, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 27);
+            this.button2.Size = new System.Drawing.Size(122, 26);
             this.button2.TabIndex = 0;
             this.button2.Text = "Student";
             this.button2.UseVisualStyleBackColor = false;
@@ -337,6 +356,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(799, 63);
             this.panel6.TabIndex = 17;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // label10
             // 
@@ -404,5 +424,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button Group;
     }
 }

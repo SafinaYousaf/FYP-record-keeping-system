@@ -30,7 +30,6 @@
         {
             this.StudentGrid = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.AddStudent = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
@@ -73,8 +72,34 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.grpstu = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
+            this.GroupStudentPan = new System.Windows.Forms.Panel();
+            this.addstugrp = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.grpid = new System.Windows.Forms.TextBox();
+            this.stdid = new System.Windows.Forms.TextBox();
+            this.status = new System.Windows.Forms.TextBox();
+            this.datedpick = new System.Windows.Forms.DateTimePicker();
+            this.stugrpdispan = new System.Windows.Forms.Panel();
+            this.GrpStudisp = new System.Windows.Forms.DataGridView();
+            this.grpstuadd = new System.Windows.Forms.Button();
+            this.upgrpstu = new System.Windows.Forms.Panel();
+            this.upgrdbt = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.GItxt = new System.Windows.Forms.TextBox();
+            this.SItxt = new System.Windows.Forms.TextBox();
+            this.Stxt = new System.Windows.Forms.TextBox();
+            this.datetx = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.StudentGrid)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -83,6 +108,12 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.GroupStudentPan.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.stugrpdispan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrpStudisp)).BeginInit();
+            this.upgrpstu.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // StudentGrid
@@ -95,32 +126,20 @@
             this.StudentGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.StudentGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.StudentGrid.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.StudentGrid.Location = new System.Drawing.Point(3, 0);
+            this.StudentGrid.Location = new System.Drawing.Point(15, 7);
             this.StudentGrid.Name = "StudentGrid";
-            this.StudentGrid.Size = new System.Drawing.Size(566, 247);
+            this.StudentGrid.Size = new System.Drawing.Size(543, 240);
             this.StudentGrid.TabIndex = 0;
             this.StudentGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentGrid_CellContentClick);
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.AddStudent);
             this.panel1.Controls.Add(this.StudentGrid);
-            this.panel1.Location = new System.Drawing.Point(175, 77);
+            this.panel1.Location = new System.Drawing.Point(186, 77);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(572, 250);
+            this.panel1.Size = new System.Drawing.Size(561, 250);
             this.panel1.TabIndex = 2;
-            // 
-            // AddStudent
-            // 
-            this.AddStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddStudent.Location = new System.Drawing.Point(3, 0);
-            this.AddStudent.Name = "AddStudent";
-            this.AddStudent.Size = new System.Drawing.Size(577, 261);
-            this.AddStudent.TabIndex = 1;
-            this.AddStudent.Paint += new System.Windows.Forms.PaintEventHandler(this.AddStudent_Paint);
             // 
             // button8
             // 
@@ -171,9 +190,9 @@
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Controls.Add(this.button6);
             this.panel5.Controls.Add(this.tableLayoutPanel3);
-            this.panel5.Location = new System.Drawing.Point(189, 60);
+            this.panel5.Location = new System.Drawing.Point(204, 60);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(542, 246);
+            this.panel5.Size = new System.Drawing.Size(527, 246);
             this.panel5.TabIndex = 9;
             // 
             // button6
@@ -360,9 +379,9 @@
             // 
             this.updatepan.Controls.Add(this.tableLayoutPanel5);
             this.updatepan.Controls.Add(this.update);
-            this.updatepan.Location = new System.Drawing.Point(204, 81);
+            this.updatepan.Location = new System.Drawing.Point(201, 84);
             this.updatepan.Name = "updatepan";
-            this.updatepan.Size = new System.Drawing.Size(571, 255);
+            this.updatepan.Size = new System.Drawing.Size(574, 252);
             this.updatepan.TabIndex = 13;
             this.updatepan.Paint += new System.Windows.Forms.PaintEventHandler(this.updatepan_Paint);
             // 
@@ -387,7 +406,7 @@
             this.tableLayoutPanel5.Controls.Add(this.dobu, 1, 5);
             this.tableLayoutPanel5.Controls.Add(this.label18, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.RegTbu, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(66, 28);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(66, 25);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 8;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.2549F));
@@ -398,7 +417,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.2549F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.2549F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.21569F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(200, 188);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(203, 188);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // label12
@@ -439,9 +458,9 @@
             this.mailu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mailu.Location = new System.Drawing.Point(103, 95);
+            this.mailu.Location = new System.Drawing.Point(104, 95);
             this.mailu.Name = "mailu";
-            this.mailu.Size = new System.Drawing.Size(94, 20);
+            this.mailu.Size = new System.Drawing.Size(96, 20);
             this.mailu.TabIndex = 9;
             // 
             // label15
@@ -460,9 +479,9 @@
             this.conu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.conu.Location = new System.Drawing.Point(103, 72);
+            this.conu.Location = new System.Drawing.Point(104, 72);
             this.conu.Name = "conu";
-            this.conu.Size = new System.Drawing.Size(94, 20);
+            this.conu.Size = new System.Drawing.Size(96, 20);
             this.conu.TabIndex = 8;
             this.conu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.conu_KeyPress);
             // 
@@ -482,9 +501,9 @@
             this.lnu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnu.Location = new System.Drawing.Point(103, 49);
+            this.lnu.Location = new System.Drawing.Point(104, 49);
             this.lnu.Name = "lnu";
-            this.lnu.Size = new System.Drawing.Size(94, 20);
+            this.lnu.Size = new System.Drawing.Size(96, 20);
             this.lnu.TabIndex = 7;
             this.lnu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lnu_KeyPress);
             // 
@@ -504,9 +523,9 @@
             this.fnu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fnu.Location = new System.Drawing.Point(103, 26);
+            this.fnu.Location = new System.Drawing.Point(104, 26);
             this.fnu.Name = "fnu";
-            this.fnu.Size = new System.Drawing.Size(94, 20);
+            this.fnu.Size = new System.Drawing.Size(96, 20);
             this.fnu.TabIndex = 6;
             this.fnu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fnu_KeyPress);
             // 
@@ -519,9 +538,9 @@
             this.genu.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.genu.Location = new System.Drawing.Point(103, 141);
+            this.genu.Location = new System.Drawing.Point(104, 141);
             this.genu.Name = "genu";
-            this.genu.Size = new System.Drawing.Size(94, 21);
+            this.genu.Size = new System.Drawing.Size(96, 21);
             this.genu.TabIndex = 12;
             // 
             // dobu
@@ -529,9 +548,9 @@
             this.dobu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dobu.Location = new System.Drawing.Point(103, 118);
+            this.dobu.Location = new System.Drawing.Point(104, 118);
             this.dobu.Name = "dobu";
-            this.dobu.Size = new System.Drawing.Size(94, 20);
+            this.dobu.Size = new System.Drawing.Size(96, 20);
             this.dobu.TabIndex = 13;
             // 
             // label18
@@ -550,9 +569,9 @@
             this.RegTbu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RegTbu.Location = new System.Drawing.Point(103, 3);
+            this.RegTbu.Location = new System.Drawing.Point(104, 3);
             this.RegTbu.Name = "RegTbu";
-            this.RegTbu.Size = new System.Drawing.Size(94, 20);
+            this.RegTbu.Size = new System.Drawing.Size(96, 20);
             this.RegTbu.TabIndex = 15;
             // 
             // update
@@ -579,6 +598,7 @@
             this.tableLayoutPanel6.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.button10, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.button11, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.grpstu, 0, 5);
             this.tableLayoutPanel6.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel6.ForeColor = System.Drawing.Color.Blue;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 109);
@@ -640,6 +660,21 @@
             this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
+            // grpstu
+            // 
+            this.grpstu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpstu.BackColor = System.Drawing.SystemColors.Window;
+            this.grpstu.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpstu.ForeColor = System.Drawing.Color.Blue;
+            this.grpstu.Location = new System.Drawing.Point(4, 199);
+            this.grpstu.Margin = new System.Windows.Forms.Padding(4);
+            this.grpstu.Name = "grpstu";
+            this.grpstu.Size = new System.Drawing.Size(132, 31);
+            this.grpstu.TabIndex = 5;
+            this.grpstu.Text = "Group Student";
+            this.grpstu.UseVisualStyleBackColor = false;
+            this.grpstu.Click += new System.EventHandler(this.grpstu_Click);
+            // 
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -664,6 +699,304 @@
             this.label10.TabIndex = 10;
             this.label10.Text = "Manage Student";
             // 
+            // GroupStudentPan
+            // 
+            this.GroupStudentPan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GroupStudentPan.Controls.Add(this.addstugrp);
+            this.GroupStudentPan.Controls.Add(this.tableLayoutPanel1);
+            this.GroupStudentPan.Location = new System.Drawing.Point(224, 84);
+            this.GroupStudentPan.Name = "GroupStudentPan";
+            this.GroupStudentPan.Size = new System.Drawing.Size(474, 222);
+            this.GroupStudentPan.TabIndex = 16;
+            // 
+            // addstugrp
+            // 
+            this.addstugrp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addstugrp.BackColor = System.Drawing.SystemColors.Window;
+            this.addstugrp.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic);
+            this.addstugrp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.addstugrp.Location = new System.Drawing.Point(310, 143);
+            this.addstugrp.Name = "addstugrp";
+            this.addstugrp.Size = new System.Drawing.Size(83, 42);
+            this.addstugrp.TabIndex = 17;
+            this.addstugrp.Text = "Add";
+            this.addstugrp.UseVisualStyleBackColor = false;
+            this.addstugrp.Click += new System.EventHandler(this.addstugrp_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.03704F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.96296F));
+            this.tableLayoutPanel1.Controls.Add(this.label19, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.grpid, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.stdid, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.status, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.datedpick, 1, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(85, 23);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(236, 100);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label19.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label19.Location = new System.Drawing.Point(3, 75);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(105, 25);
+            this.label19.TabIndex = 28;
+            this.label19.Text = "Assign. Date";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label9.Location = new System.Drawing.Point(3, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 25);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Status";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label1.Location = new System.Drawing.Point(3, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 25);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Student ID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 25);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Group Id";
+            // 
+            // grpid
+            // 
+            this.grpid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpid.Location = new System.Drawing.Point(114, 3);
+            this.grpid.Name = "grpid";
+            this.grpid.Size = new System.Drawing.Size(119, 20);
+            this.grpid.TabIndex = 23;
+            this.grpid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.grpid_KeyPress);
+            // 
+            // stdid
+            // 
+            this.stdid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stdid.Location = new System.Drawing.Point(114, 28);
+            this.stdid.Name = "stdid";
+            this.stdid.Size = new System.Drawing.Size(119, 20);
+            this.stdid.TabIndex = 25;
+            this.stdid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stdid_KeyPress);
+            // 
+            // status
+            // 
+            this.status.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.status.Location = new System.Drawing.Point(114, 53);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(119, 20);
+            this.status.TabIndex = 27;
+            this.status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.status_KeyPress);
+            // 
+            // datedpick
+            // 
+            this.datedpick.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datedpick.Location = new System.Drawing.Point(114, 78);
+            this.datedpick.Name = "datedpick";
+            this.datedpick.Size = new System.Drawing.Size(119, 20);
+            this.datedpick.TabIndex = 29;
+            // 
+            // stugrpdispan
+            // 
+            this.stugrpdispan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.stugrpdispan.Controls.Add(this.GrpStudisp);
+            this.stugrpdispan.Controls.Add(this.grpstuadd);
+            this.stugrpdispan.Location = new System.Drawing.Point(179, 129);
+            this.stugrpdispan.Name = "stugrpdispan";
+            this.stugrpdispan.Size = new System.Drawing.Size(593, 210);
+            this.stugrpdispan.TabIndex = 19;
+            this.stugrpdispan.Paint += new System.Windows.Forms.PaintEventHandler(this.stugrpdispan_Paint);
+            // 
+            // GrpStudisp
+            // 
+            this.GrpStudisp.BackgroundColor = System.Drawing.SystemColors.Info;
+            this.GrpStudisp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrpStudisp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GrpStudisp.Location = new System.Drawing.Point(0, 0);
+            this.GrpStudisp.Name = "GrpStudisp";
+            this.GrpStudisp.Size = new System.Drawing.Size(593, 130);
+            this.GrpStudisp.TabIndex = 7;
+            this.GrpStudisp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrpStudisp_CellContentClick_1);
+            // 
+            // grpstuadd
+            // 
+            this.grpstuadd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpstuadd.BackColor = System.Drawing.SystemColors.Window;
+            this.grpstuadd.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpstuadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.grpstuadd.Location = new System.Drawing.Point(447, 153);
+            this.grpstuadd.Name = "grpstuadd";
+            this.grpstuadd.Size = new System.Drawing.Size(84, 35);
+            this.grpstuadd.TabIndex = 6;
+            this.grpstuadd.Text = "Add";
+            this.grpstuadd.UseVisualStyleBackColor = false;
+            this.grpstuadd.Click += new System.EventHandler(this.grpstuadd_Click_1);
+            // 
+            // upgrpstu
+            // 
+            this.upgrpstu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.upgrpstu.Controls.Add(this.upgrdbt);
+            this.upgrpstu.Controls.Add(this.tableLayoutPanel2);
+            this.upgrpstu.Location = new System.Drawing.Point(167, 77);
+            this.upgrpstu.Name = "upgrpstu";
+            this.upgrpstu.Size = new System.Drawing.Size(564, 250);
+            this.upgrpstu.TabIndex = 20;
+            // 
+            // upgrdbt
+            // 
+            this.upgrdbt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.upgrdbt.BackColor = System.Drawing.SystemColors.Window;
+            this.upgrdbt.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic);
+            this.upgrdbt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.upgrdbt.Location = new System.Drawing.Point(336, 147);
+            this.upgrdbt.Name = "upgrdbt";
+            this.upgrdbt.Size = new System.Drawing.Size(99, 42);
+            this.upgrdbt.TabIndex = 17;
+            this.upgrdbt.Text = "Update";
+            this.upgrdbt.UseVisualStyleBackColor = false;
+            this.upgrdbt.Click += new System.EventHandler(this.upgrdbt_Click);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.03704F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.96296F));
+            this.tableLayoutPanel2.Controls.Add(this.label20, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label21, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label22, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label23, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.GItxt, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.SItxt, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.Stxt, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.datetx, 1, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(85, 23);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(236, 100);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label20.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label20.Location = new System.Drawing.Point(3, 75);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(105, 25);
+            this.label20.TabIndex = 28;
+            this.label20.Text = "Assign. Date";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label21.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label21.Location = new System.Drawing.Point(3, 50);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(105, 25);
+            this.label21.TabIndex = 26;
+            this.label21.Text = "Status";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label22.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label22.Location = new System.Drawing.Point(3, 25);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(105, 25);
+            this.label22.TabIndex = 24;
+            this.label22.Text = "Student ID";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label23.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label23.Location = new System.Drawing.Point(3, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(105, 25);
+            this.label23.TabIndex = 22;
+            this.label23.Text = "Group Id";
+            // 
+            // GItxt
+            // 
+            this.GItxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GItxt.Location = new System.Drawing.Point(114, 3);
+            this.GItxt.Name = "GItxt";
+            this.GItxt.Size = new System.Drawing.Size(119, 20);
+            this.GItxt.TabIndex = 23;
+            // 
+            // SItxt
+            // 
+            this.SItxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SItxt.Location = new System.Drawing.Point(114, 28);
+            this.SItxt.Name = "SItxt";
+            this.SItxt.Size = new System.Drawing.Size(119, 20);
+            this.SItxt.TabIndex = 25;
+            // 
+            // Stxt
+            // 
+            this.Stxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Stxt.Location = new System.Drawing.Point(114, 53);
+            this.Stxt.Name = "Stxt";
+            this.Stxt.Size = new System.Drawing.Size(119, 20);
+            this.Stxt.TabIndex = 27;
+            // 
+            // datetx
+            // 
+            this.datetx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.datetx.Location = new System.Drawing.Point(114, 78);
+            this.datetx.Name = "datetx";
+            this.datetx.Size = new System.Drawing.Size(119, 20);
+            this.datetx.TabIndex = 29;
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -671,11 +1004,14 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(800, 561);
+            this.Controls.Add(this.upgrpstu);
+            this.Controls.Add(this.stugrpdispan);
             this.Controls.Add(this.updatepan);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
+            this.Controls.Add(this.GroupStudentPan);
             this.Name = "Display";
             this.Text = "FYP Managment App";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -690,6 +1026,14 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.GroupStudentPan.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.stugrpdispan.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GrpStudisp)).EndInit();
+            this.upgrpstu.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -700,7 +1044,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Add;
-        private System.Windows.Forms.Panel AddStudent;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -743,6 +1086,32 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button grpstu;
+        private System.Windows.Forms.Panel GroupStudentPan;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox grpid;
+        private System.Windows.Forms.TextBox stdid;
+        private System.Windows.Forms.TextBox status;
+        private System.Windows.Forms.Button addstugrp;
+        private System.Windows.Forms.DateTimePicker datedpick;
+        private System.Windows.Forms.Panel stugrpdispan;
+        private System.Windows.Forms.Button grpstuadd;
+        private System.Windows.Forms.DataGridView GrpStudisp;
+        private System.Windows.Forms.Panel upgrpstu;
+        private System.Windows.Forms.Button upgrdbt;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox GItxt;
+        private System.Windows.Forms.TextBox SItxt;
+        private System.Windows.Forms.TextBox Stxt;
+        private System.Windows.Forms.DateTimePicker datetx;
     }
 }
 

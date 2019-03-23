@@ -347,5 +347,16 @@ namespace ProjectA
 
             }
         }
+
+        private void Group_Click(object sender, EventArgs e)
+        {
+            Group Groupfm = new Group();
+            Groupfm.Show();
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
