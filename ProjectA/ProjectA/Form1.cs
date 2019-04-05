@@ -64,7 +64,7 @@ namespace ProjectA
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT TOP(10) * FROM [GROUPSTUDENT] ORDER BY GroupId DESC";
             cmd.ExecuteNonQuery();
-            //DataTable dt = new DataTable();
+           
             da1 = new SqlDataAdapter(cmd);
             da1.Fill(dt1);
             GrpStudisp.DataSource = dt1; //Student is name of data grid view present on form
@@ -108,14 +108,10 @@ namespace ProjectA
                 if (result == DialogResult.Yes)
                 {
                     panel1.Hide();
-                    //panel2.Hide();
-                    //panel6.Hide();
-                    //panel4.Hide();
-                    //panel3.Hide();
-                    //AddStudent.Hide();
+                    
                     panel5.Hide();
                     updatepan.Show();
-                    //Update_rec();
+                    
                 }
                 else if (result == DialogResult.No)
                 {
@@ -173,11 +169,8 @@ namespace ProjectA
                 string id = StudentGrid.SelectedCells[0].Value.ToString();
                 try
                 {
-                    //SqlCommand cmd = new SqlCommand(" DELETE FROM STUDENT WHERE Id = '" + id + "';", con);
-                    //cmd.ExecuteNonQuery();
-                    //StudentGrid.Rows.RemoveAt(index);
-                    //StudentGrid.DataSource = dt;
-                    MessageBox.Show("Chal gya");
+                    
+                    
                     SqlCommand cmd = new SqlCommand("UPDATE PERSON(FirstName,LastName,Contact,Email,DateOfBirth,Gender) VALUES(@FirstName,@LastName,@Contact,@Email,@DateofBirth,@Gender)", con);
                     cmd.Parameters.AddWithValue("@FirstName", fnu.Text);
                     cmd.Parameters.AddWithValue("@LastName", lnu.Text);
@@ -201,7 +194,7 @@ namespace ProjectA
                             con.Open();
                             cmd = new SqlCommand("Update STUDENT('" + id + "','" + rno.Text + "')", con);
                             cmd.ExecuteNonQuery();
-                            MessageBox.Show("Data Inserted Successfully");
+                           // MessageBox.Show("Data Updated Successfully");
                             con.Close();
                         }
 
@@ -213,30 +206,20 @@ namespace ProjectA
                     
 
                 }
-                /*
-                cmd.ExecuteNonQuery();
-                var val = cmd.ExecuteScalar().ToString();
-                int val1 = int.Parse(val);
-                con.Close();
-                con.Open();
-                cmd = new SqlCommand("INSERT INTO STUDENT()", con);
-                */
+                
                 catch
                 {
                     MessageBox.Show("Someting went wrong.");
                 }
-                MessageBox.Show("Data Inserted Successfully");
+                MessageBox.Show("Data Updated Successfully");
             }
 
             //handling panels
 
-            //panel4.Hide();
-            //panel3.Hide();
-            //AddStudent.Hide();
+            
             panel5.Hide();
             panel1.Show();
-            //panel2.Show();
-           // panel3.Show();
+            
         }
 
 
@@ -247,46 +230,58 @@ namespace ProjectA
         {
             con.Close();
             con.Open();
-
             int index = StudentGrid.CurrentCell.RowIndex;
             StudentGrid.Rows[index].Selected = true;
             string id = StudentGrid.SelectedCells[0].Value.ToString();
-            try
+            SqlCommand cmd1 = new SqlCommand("SELECT * FROM GroupStudent WHERE StudentId = '" +id+"'",con);
+            SqlDataReader reader = cmd1.ExecuteReader();
+            if (reader.HasRows)
             {
-                
-                SqlCommand cmd = new SqlCommand(" DELETE FROM STUDENT WHERE Id = '" + id + "';", con);
-
-                cmd.ExecuteNonQuery();
-                cmd = new SqlCommand(" DELETE FROM Person WHERE Id = '" + id + "';", con);
-
-                cmd.ExecuteNonQuery();
-                StudentGrid.Rows.RemoveAt(index);
-                StudentGrid.DataSource = dt;
-                MessageBox.Show("Student Deleted.");
-                
+                con.Close();
+                MessageBox.Show("Student Is Present in group.");
             }
-
-            catch
+            else
             {
-                MessageBox.Show("Something went wrong.");
+                try
+                {
+
+                    SqlCommand cmd = new SqlCommand(" DELETE FROM STUDENT WHERE Id = '" + id + "';", con);
+
+                    cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand(" DELETE FROM Person WHERE Id = '" + id + "';", con);
+
+                    cmd.ExecuteNonQuery();
+                    StudentGrid.Rows.RemoveAt(index);
+                    StudentGrid.DataSource = dt;
+                    MessageBox.Show("Student Deleted.");
+
+                }
+
+                catch
+                {
+                    con.Close();
+                    MessageBox.Show("Something went wrong.");
+                }
             }
             con.Close();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            disp_data();
+            disp_data(); //display data of Student
             upgrpstu.Hide();
-            //GrpStudisp.Hide(); 
-            disp_data_grpstu();
-            panel1.Show();
+            
+            disp_data_grpstu();//display data of student group
+            //panel2.Hide();
+            
             GroupStudentPan.Hide();
-            GroupStudentPan.Hide();
-            //AddStudent.Hide();
+            
+            
             updatepan.Hide();
             panel5.Hide();
             stugrpdispan.Hide();
-            
-            
+            panel1.Show();
+
+
 
 
 
@@ -297,7 +292,7 @@ namespace ProjectA
             updatepan.Hide();
             stugrpdispan.Hide();
             upgrpstu.Hide();
-            //AddStudent.Hide();
+            
             panel5.Hide();
             panel1.Show();
             GroupStudentPan.Hide();
@@ -311,30 +306,16 @@ namespace ProjectA
 
         private void Add_Click(object sender, EventArgs e)
         {
-            //addstu.Show();
+            stugrpdispan.Hide();
             upgrpstu.Hide();
             updatepan.Hide();
             panel1.Hide();
-            //panel2.Hide();
-            //panel6.Hide();
-            //panel4.Hide();
-            //panel3.Hide();
-            //AddStudent.Hide();
+            
             panel5.Show();
 
 
 
-            /*
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into Student values('" + id.Text + "','" + RegNo.Text + "')";
-            cmd.ExecuteNonQuery(); cmd.CommandText = "insert into Person values('" + id.Text + "','" + FName.Text + "','" + LName.Text + "','" + cont.Text + "','" + Email.Text + "','" + Dob.Text + "','" + Gender.Text + "')"
-            con.Close();
-            disp_data(); //display data when inserted into table
-            //Message box
-            MessageBox.Show("Inserted");
-            */
+            
         }
 
         private void AddStudent_Paint(object sender, PaintEventArgs e)
@@ -354,15 +335,7 @@ namespace ProjectA
 
         private void adds_Click_1(object sender, EventArgs e)
         {
-            /*
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into Student values('" + stdID.Text + "','" + StdReg.Text + "')";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Inserted");
-            */
+           
 
         }
 
@@ -370,49 +343,15 @@ namespace ProjectA
         {
             
             panel5.Hide();
-            //panel6.Hide();
-            //AddStudent.Hide();
+            
             panel1.Show();
-            //panel2.Show();
-            //panel3.Show();
-            //panel4.Show();
+            
             
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            /*
-            con.Open();
-            SqlCommand check_User_Name = new SqlCommand("SELECT ID FROM Student WHERE ([ID] = @ID)", con);
-           // SqlCommand check_User_Name = new SqlCommand("SELECT * FROM Table WHERE ([user] = @user)", conn);
-            check_User_Name.Parameters.AddWithValue("ID", stuId.Text);
-            SqlDataReader reader = check_User_Name.ExecuteReader();
-            if (reader.HasRows)
-            {
-                con.Close();
-
-                MessageBox.Show("exixts");
-                
-
-            }
             
-            else
-            {
-                con.Close();
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into Student values('" + stuId.Text + "','" + regNo.Text + "')";
-                cmd.ExecuteNonQuery();
-           
-                con.Close();
-
-                //Message box
-                MessageBox.Show("Inserted");
-
-                
-            }
-            */
             
         }
         int value;
@@ -453,7 +392,15 @@ namespace ProjectA
             bool isLNameValid = Regex.IsMatch(Lname.Text, namepat);
             SqlCommand cmd1 = new SqlCommand("SELECT * FROM PERSON WHERE Email = '"+email.Text+"'",con);
             SqlDataReader reader = cmd1.ExecuteReader();
-            if(reader.HasRows)
+            cmd1 = new SqlCommand("SELECT * FROM PERSON WHERE Email = '" + Cont.Text + "'", con);
+            SqlDataReader reader2 = cmd1.ExecuteReader();
+            if (reader2.HasRows)
+            {
+                con.Close();
+                MessageBox.Show("Phone number should be unique.");
+
+            }
+            if (reader.HasRows)
             {
                 con.Close();
                 MessageBox.Show("Email alredy exists.");
@@ -495,7 +442,7 @@ namespace ProjectA
                 else if (!isRegNoValid)
                 {
                     con.Close();
-                    MessageBox.Show("please enter valid RegNo number");
+                    MessageBox.Show("Registration Number must be entered like '####-XX-###'.");
                     //panel4.Hide();
                     //panel3.Hide();
                     //AddStudent.Hide();
@@ -545,7 +492,7 @@ namespace ProjectA
                             con.Close();
                             MessageBox.Show("something went wrong.");
                         }
-                        MessageBox.Show("Data Inserted Successfully");
+                        
 
                     }
                     catch
@@ -555,22 +502,13 @@ namespace ProjectA
                     }
                     
                     con.Close();
-                    MessageBox.Show("Data Inserted Successfully2");
+                    MessageBox.Show("Data Inserted Successfully.");
                     this.Hide();
                     Display obj1 = new Display();
                     obj1.Show();
                 }
                
 
-                /*//handling panels
-
-                panel4.Hide();
-                //panel3.Hide();
-                AddStudent.Hide();
-                panel5.Hide();
-                panel1.Show();
-                panel2.Show();
-                //panel3.Show();*/
             }
 
         }
@@ -600,9 +538,9 @@ namespace ProjectA
 
         private void Fname_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+            //e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || char.IsWhiteSpace(e.KeyChar));
 
-            if (char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
+            if(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
             {
 
 
@@ -789,7 +727,7 @@ namespace ProjectA
                     try
                     {
 
-
+                        
                         SqlCommand cmd2 = new SqlCommand("UPDATE STUDENT SET RegistrationNo =@regno WHERE Id ='" + id + "';", con);
                         cmd2.Parameters.AddWithValue("@regno", RegTbu.Text);
                         // cmd.Parameters.AddWithValue("@id", id);
@@ -930,71 +868,102 @@ namespace ProjectA
             con.Close();
            
                 con.Open();
-            SqlCommand check_User_Name0 = new SqlCommand("SELECT GroupId FROM [GroupStudent]  WHERE ([GroupId] = @GID AND [StudentId]=@SID)", con);
-            check_User_Name0.Parameters.AddWithValue("GID", grpid.Text);
-            check_User_Name0.Parameters.AddWithValue("SID", stdid.Text);
-            SqlDataReader reader0 = check_User_Name0.ExecuteReader();
-            if (reader0.HasRows)
+            string RegNopat = @"^[0-9]{4}-{1}[A-Z]{2}-{1}[0-9]{3}$";
+            bool isRegNoValid = Regex.IsMatch(stdid.Text, RegNopat);
+            if (!isRegNoValid)
             {
-                MessageBox.Show("Already Exists.");
+                MessageBox.Show("REgistration Number must be of form '####-XX-###'.");
             }
             else
             {
-                try
+
+
+                SqlCommand cmd = con.CreateCommand();
+                //int countstd = 0;
+                int id = 0;
+                cmd = new SqlCommand("SELECT Id FROM Student WHERE RegistrationNO = @regno;", con);
+                cmd.Parameters.AddWithValue("@regno", stdid.Text);
+                id = Convert.ToInt32(cmd.ExecuteScalar());
+                SqlCommand check_User_Name0 = new SqlCommand("SELECT GroupId FROM [GroupStudent]  WHERE ([GroupId] = @GID AND [StudentId]='" + id + "')", con);
+                check_User_Name0.Parameters.AddWithValue("GID", grpid.Text);
+                check_User_Name0.Parameters.AddWithValue("SID", stdid.Text);
+                SqlDataReader reader0 = check_User_Name0.ExecuteReader();
+                if (reader0.HasRows)
                 {
-                    SqlCommand check_User_Name = new SqlCommand("SELECT Id FROM [Group] WHERE ([Id] = @ID)", con);
-                    check_User_Name.Parameters.AddWithValue("ID", grpid.Text);
-                    SqlDataReader reader = check_User_Name.ExecuteReader();
-                    if (reader.HasRows)
+                    MessageBox.Show("Already Exists.");
+                }
+                else
+                {
+                    try
                     {
-                        SqlCommand check_User_Name1 = new SqlCommand("SELECT Id FROM [Student] WHERE ([Id] = @ID)", con);
-                        check_User_Name1.Parameters.AddWithValue("ID", stdid.Text);
-                        SqlDataReader reader2 = check_User_Name1.ExecuteReader();
-                        if (reader2.HasRows)
+                        SqlCommand check_User_Name = new SqlCommand("SELECT Id FROM [Group] WHERE ([Id] = @ID)", con);
+                        check_User_Name.Parameters.AddWithValue("ID", grpid.Text);
+                        SqlDataReader reader = check_User_Name.ExecuteReader();
+                        if (reader.HasRows)
                         {
-                            SqlCommand check_User_Name3 = new SqlCommand("SELECT GroupId FROM [GroupStudent]  WHERE ([GroupId] = @GID AND [StudentId]=@SID)", con);
-                            check_User_Name3.Parameters.AddWithValue("GID", grpid.Text);
-                            check_User_Name3.Parameters.AddWithValue("SID", stdid.Text);
-                            SqlDataReader reader3= check_User_Name3.ExecuteReader();
-                            if (reader3.HasRows)
+                            SqlCommand check_User_Name1 = new SqlCommand("SELECT Id FROM [Student] WHERE ([Id] = '" + id + "')", con);
+                            //check_User_Name1.Parameters.AddWithValue("ID", stdid.Text);
+                            SqlDataReader reader2 = check_User_Name1.ExecuteReader();
+                            if (reader2.HasRows)
                             {
-                                MessageBox.Show("ONe Student must Present in One group.");
+                                SqlCommand check_User_Name3 = new SqlCommand("SELECT GroupId FROM [GroupStudent]  WHERE ([GroupId] = @GID AND [StudentId]='" + id + "')", con);
+                                check_User_Name3.Parameters.AddWithValue("GID", grpid.Text);
+                                //check_User_Name3.Parameters.AddWithValue("SID", stdid.Text);
+                                SqlDataReader reader3 = check_User_Name3.ExecuteReader();
+                                if (reader3.HasRows)
+                                {
+                                    MessageBox.Show("One Student must Present in One group.");
+                                }
+                                else
+                                {
+                                    cmd = new SqlCommand("Select COUNT(1) As gid from GroupStudent WHERE GroupId = '" + grpid.Text+"';", con);
+                                    object countstd1 = cmd.ExecuteScalar();
+                                    int countstd = 0;
+                                    if (! (countstd1 == DBNull.Value))
+                                    {
+                                        countstd = Convert.ToInt32(countstd1);
+                                    }
+                                     
+                                    if (countstd == 4)
+                                    {
+                                        con.Close();
+                                        MessageBox.Show("No More Student Can Be Added.");
+                                    }
+                                    else
+                                    {
+                                        cmd = new SqlCommand("INSERT INTO [GroupStudent](GroupId,StudentId,[Status],AssignmentDate) VALUES(@GI,@SI,@Status,@datee);", con);
+                                        cmd.Parameters.AddWithValue("@GI", grpid.Text);
+                                        cmd.Parameters.AddWithValue("@SI", id);
+                                        cmd.Parameters.AddWithValue("@Status", status.Text);
+                                        cmd.Parameters.AddWithValue("@datee", DateTime.Parse(datedpick.Text));
+                                        cmd.ExecuteNonQuery();
+                                        MessageBox.Show("Data inserted.");
+
+                                        con.Close();
+                                        this.Hide();
+                                        Display obj = new Display();
+                                        obj.Show();
+                                    }
+                                }
                             }
                             else
                             {
-                                SqlCommand cmd = con.CreateCommand();
-                                cmd = new SqlCommand("INSERT INTO [GroupStudent](GroupId,StudentId,[Status],AssignmentDate) VALUES(@GI,@SI,@Status,@datee);", con);
-                                cmd.Parameters.AddWithValue("@GI", grpid.Text);
-                                cmd.Parameters.AddWithValue("@SI", stdid.Text);
-                                cmd.Parameters.AddWithValue("@Status", status.Text);
-                                cmd.Parameters.AddWithValue("@datee", DateTime.Parse(datedpick.Text));
-                                cmd.ExecuteNonQuery();
-                                MessageBox.Show("Data inserted.");
-
-                                con.Close();
-                                this.Hide();
-                                Display obj = new Display();
-                                obj.Show();
+                                MessageBox.Show("Group does not exists.");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Group does not exists.");
+                            MessageBox.Show("Student does not exists.");
                         }
                     }
-                    else
+                    catch
                     {
-                        MessageBox.Show("Student does not exists.");
+                        con.Close();
+                        MessageBox.Show("something went wrong.");
                     }
-                }
-                catch
-                {
-                    con.Close();
-                    MessageBox.Show("something went wrong.");
-                }
 
+                }
             }
-            
         }
 
         private void status_KeyPress(object sender, KeyPressEventArgs e)
@@ -1016,19 +985,7 @@ namespace ProjectA
 
         private void stdid_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8)
-            {
-
-
-                e.Handled = false;
-
-            }
-            else
-            {
-                MessageBox.Show("Please Enter only Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                e.Handled = true;
-
-            }
+          
         }
 
         private void grpid_KeyPress(object sender, KeyPressEventArgs e)
@@ -1132,7 +1089,7 @@ namespace ProjectA
            
             panel5.Hide();
             panel1.Hide();
-            GroupStudentPan.Hide();
+            
             GroupStudentPan.Show();
         }
 
@@ -1155,31 +1112,87 @@ namespace ProjectA
         {
             con.Close();
             con.Open();
-            try
-            {
-                int index = GrpStudisp.CurrentCell.RowIndex;
-                GrpStudisp.Rows[index].Selected = true;
-                string id = GrpStudisp.SelectedCells[1].Value.ToString();
-                SqlCommand cmd = new SqlCommand("UPDATE [GroupStudent] SET GroupId=@GI,StudentId =@SI,Status=@Status,AssignmentDate=@datee WHERE StudentId = '" + id + "';", con);
-                cmd.Parameters.AddWithValue("@GI", GItxt.Text);
-                cmd.Parameters.AddWithValue("@SI", SItxt.Text);
-                cmd.Parameters.AddWithValue("@Status", Stxt.Text);
-                cmd.Parameters.AddWithValue("@datee", DateTime.Parse(datetx.Text));
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Data updated.");
-                
-                this.Hide();
-                Display obj = new Display();
-                obj.Show();
+            
 
-                
-            }
-            catch
+
+                try
+                {
+                    SqlCommand cmd = con.CreateCommand();
+
+                    cmd = new SqlCommand("Select COUNT(1) As gid from GroupStudent WHERE GroupId = '" + GItxt.Text + "';", con);
+                    object countstd1 = cmd.ExecuteScalar();
+                    int countstd = 0;
+                    if (!(countstd1 == DBNull.Value))
+                    {
+                        countstd = Convert.ToInt32(countstd1);
+                    }
+
+                    if (countstd >= 4)
+                    {
+                        con.Close();
+                        MessageBox.Show("No More Student Can Be Added.");
+                    }
+                    else
+                    {
+                        int index = GrpStudisp.CurrentCell.RowIndex;
+                        GrpStudisp.Rows[index].Selected = true;
+                        string id = GrpStudisp.SelectedCells[1].Value.ToString();
+                        cmd = new SqlCommand("Select COUNT(1) As gid from GroupStudent WHERE GroupId = '" + grpid.Text + "';", con);
+                        cmd = new SqlCommand("UPDATE [GroupStudent] SET GroupId=@GI,StudentId =@SI,Status=@Status,AssignmentDate=@datee WHERE StudentId = '" + id + "';", con);
+                        cmd.Parameters.AddWithValue("@GI", GItxt.Text);
+                        cmd.Parameters.AddWithValue("@SI", id);
+                        cmd.Parameters.AddWithValue("@Status", Stxt.Text);
+                        cmd.Parameters.AddWithValue("@datee", DateTime.Parse(datetx.Text));
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("Data updated.");
+
+                        this.Hide();
+                        Display obj = new Display();
+                        obj.Show();
+
+                    }
+                }
+                catch
+                {
+                    con.Close();
+                    MessageBox.Show("Something went wrong.");
+                }
+            
+
+        }
+
+        private void GItxtad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8)
             {
-                con.Close();
-                MessageBox.Show("Something went wrong.");
+
+
+                e.Handled = false;
+
             }
+            else
+            {
+                MessageBox.Show("Please Enter only Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                e.Handled = true;
+
+            }
+        }
+
+        private void addGE_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SItxtad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Group grp = new Group();
+            grp.Show();
 
         }
     }

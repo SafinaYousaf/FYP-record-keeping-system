@@ -97,11 +97,11 @@
             this.Addgrp.BackColor = System.Drawing.SystemColors.Window;
             this.Addgrp.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Addgrp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Addgrp.Location = new System.Drawing.Point(678, 14);
+            this.Addgrp.Location = new System.Drawing.Point(611, 14);
             this.Addgrp.Name = "Addgrp";
-            this.Addgrp.Size = new System.Drawing.Size(83, 40);
+            this.Addgrp.Size = new System.Drawing.Size(150, 40);
             this.Addgrp.TabIndex = 8;
-            this.Addgrp.Text = "Add";
+            this.Addgrp.Text = "New GroupProject ";
             this.Addgrp.UseVisualStyleBackColor = false;
             this.Addgrp.Click += new System.EventHandler(this.Addgrp_Click);
             // 
@@ -467,7 +467,7 @@
         private System.Windows.Forms.Panel dispgrppan;
         private System.Windows.Forms.DataGridView dispgrid;
         private System.Windows.Forms.Panel updpan;
-        private System.Windows.Forms.Button Update;
+       private System.Windows.Forms.Button Update;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

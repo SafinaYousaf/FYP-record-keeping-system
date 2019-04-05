@@ -145,6 +145,7 @@ namespace ProjectA
         }
         private void button8_Click(object sender, EventArgs e)
         {
+            con.Close();
             //outer if check if Project Id and advisor Id exists or not.
             //inner if check if there is any kind of primary key violation inside table
             con.Open();
@@ -168,11 +169,30 @@ namespace ProjectA
                     con.Close();
                     MessageBox.Show("There must exists one advisor of one type for 1 project.");
                 }
+
+
                 else
                 {
                     con.Close();
                     con.Open();
-                    SqlCommand cmd = con.CreateCommand();
+                    SqlCommand cmd = new SqlCommand("Select COUNT(1) As pid from ProjectAdvisor WHERE ProjectId = '" + ProId.Text + "';", con);
+                    object countstd1 = cmd.ExecuteScalar();
+                    int countstd = 0;
+                    if (!(countstd1 == DBNull.Value))
+                    {
+                        countstd = Convert.ToInt32(countstd1);
+                    }
+
+                    if (countstd >= 3)
+                    {
+                        con.Close();
+                        MessageBox.Show("No More Advisor can be added against this project Can Be Added.");
+                    }
+                    else
+                    {
+
+                  
+                    cmd = con.CreateCommand();
                     cmd = new SqlCommand("INSERT INTO ProjectAdvisor(AdvisorId, ProjectId,AdvisorRole,AssignmentDate) VALUES(@AdvisorId,@ProjectId,@AdvisorRole,@AssignmentDate)", con);
                     cmd.Parameters.AddWithValue("@ProjectId", ProId.Text);
                     cmd.Parameters.AddWithValue("@AdvisorId", AdvId.Text);
@@ -188,6 +208,7 @@ namespace ProjectA
                     this.Hide();
                     ProjectAdvisor pradfm = new ProjectAdvisor();
                     pradfm.Show();
+                }
                 }
             }
             

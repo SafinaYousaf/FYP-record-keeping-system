@@ -90,16 +90,25 @@ namespace ProjectA
                 MessageBox.Show("Plese enter Project Id.");
 
             }
+            SqlCommand cmd1 = new SqlCommand("SELECT * FROM Project WHERE Id = '" +grpid.Text+ "'", con);
+            SqlDataReader reader = cmd1.ExecuteReader();
+            if (!(reader.HasRows))
+            {
+                con.Close();
+                MessageBox.Show("Project is Not Defined.");
+            }
             else
             {
                 SqlCommand check_User_Name = new SqlCommand("SELECT ProjectId FROM [GroupProject] WHERE ([ProjectId] = @ID)", con);
                 check_User_Name.Parameters.AddWithValue("ID", grpid.Text);
-                SqlDataReader reader = check_User_Name.ExecuteReader();
-                if (reader.HasRows)
+                SqlDataReader reader1 = check_User_Name.ExecuteReader();
+
+                if (reader1.HasRows)
                 {
                     con.Close();
-                    MessageBox.Show("Project group alredy exist against provided group Id.");
+                    MessageBox.Show("Project group already exist against provided group Id.");
                 }
+
                 else
                 {
                     try
@@ -115,7 +124,7 @@ namespace ProjectA
                             cmd = new SqlCommand("INSERT INTO [GroupProject](GroupId, ProjectId,AssignmentDate) values('" + modified + "','" + grpid.Text + "','" + DateTime.Parse(dated.Text) + "');", con);
                             cmd.ExecuteNonQuery();
                             con.Close();
-                            MessageBox.Show("Data Inserted Successfully");
+                            MessageBox.Show("Group and Group Project Is created Successfully.");
                             this.Hide();
                             Group grpfm = new Group();
                             grpfm.Show();
@@ -176,7 +185,7 @@ namespace ProjectA
         }
         private void Delete()
         {
-            MessageBox.Show("Cal gya.");
+            
             con.Close();
             con.Open();
 

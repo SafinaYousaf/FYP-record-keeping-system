@@ -34,5 +34,46 @@ namespace ProjectA
             Project pro = new Project();
             pro.Show();
         }
+
+        private void prorep_Click(object sender, EventArgs e)
+        {
+            Report prorepp = new Report();
+            prorepp.Show();
+        }
+
+        private void evalrep_Click(object sender, EventArgs e)
+        {
+            Report2 prorepp2 = new Report2();
+            prorepp2.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Projcount pro = new Projcount();
+            pro.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AdvisorName pro = new AdvisorName();
+            pro.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Projcount pro = new Projcount();
+            pro.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            Evaluation eval = new Evaluation();
+            eval.Show();
+        }
     }
 }
