@@ -394,10 +394,18 @@ namespace ProjectA
             SqlDataReader reader = cmd1.ExecuteReader();
             cmd1 = new SqlCommand("SELECT * FROM PERSON WHERE Email = '" + Cont.Text + "'", con);
             SqlDataReader reader2 = cmd1.ExecuteReader();
+            SqlCommand cmd3 = new SqlCommand("SELECT * FROM PERSON WHERE Email = '" + rno.Text + "'", con);
+            SqlDataReader reader3 = cmd1.ExecuteReader();
             if (reader2.HasRows)
             {
                 con.Close();
                 MessageBox.Show("Phone number should be unique.");
+
+            }
+            if (reader3.HasRows)
+            {
+                con.Close();
+                MessageBox.Show("Registration no Alredy exists.");
 
             }
             if (reader.HasRows)
@@ -863,9 +871,32 @@ namespace ProjectA
 
         }
 
+        int val;
+        private int Status_look(string gen)
+        {
+            string query;
+
+            if (gen == "Active")
+                query = "SELECT Id FROM Lookup where Category= 'STATUS' AND Value = 'Active'";
+            else
+                query = "SELECT Id FROM Lookup where Category= 'STATUS' AND Value = 'InActive'";
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                val = int.Parse(reader[0].ToString());
+            }
+            return val;
+
+        }
         private void addstugrp_Click(object sender, EventArgs e)
         {
-            con.Close();
+           con.Close();
            
                 con.Open();
             string RegNopat = @"^[0-9]{4}-{1}[A-Z]{2}-{1}[0-9]{3}$";
@@ -934,7 +965,10 @@ namespace ProjectA
                                         cmd = new SqlCommand("INSERT INTO [GroupStudent](GroupId,StudentId,[Status],AssignmentDate) VALUES(@GI,@SI,@Status,@datee);", con);
                                         cmd.Parameters.AddWithValue("@GI", grpid.Text);
                                         cmd.Parameters.AddWithValue("@SI", id);
-                                        cmd.Parameters.AddWithValue("@Status", status.Text);
+                                        //cmd.Parameters.AddWithValue("@Status", status.Text);
+                                        string st = statuscom.Text.ToString();
+                                        int g = Status_look(st);
+                                        cmd.Parameters.AddWithValue("@Status", g);
                                         cmd.Parameters.AddWithValue("@datee", DateTime.Parse(datedpick.Text));
                                         cmd.ExecuteNonQuery();
                                         MessageBox.Show("Data inserted.");
@@ -948,12 +982,12 @@ namespace ProjectA
                             }
                             else
                             {
-                                MessageBox.Show("Group does not exists.");
+                                MessageBox.Show("Student does not exists.");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Student does not exists.");
+                            MessageBox.Show("Group does not exists.");
                         }
                     }
                     catch
@@ -968,7 +1002,7 @@ namespace ProjectA
 
         private void status_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8)
+            if (char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
             {
 
 
@@ -977,10 +1011,24 @@ namespace ProjectA
             }
             else
             {
-                MessageBox.Show("Please Enter only Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Please Enter only Alphabets.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 e.Handled = true;
 
             }
+
+            /* if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8)
+             {
+
+
+                 e.Handled = false;
+
+             }
+             else
+             {
+                 MessageBox.Show("Please Enter only Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                 e.Handled = true;
+
+             }*/
         }
 
         private void stdid_KeyPress(object sender, KeyPressEventArgs e)
@@ -1194,6 +1242,12 @@ namespace ProjectA
             Group grp = new Group();
             grp.Show();
 
+        }
+       
+
+        private void Display_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

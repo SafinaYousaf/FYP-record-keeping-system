@@ -50,6 +50,7 @@
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "Projcount";
             this.Text = "Projcount";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Projcount_FormClosed);
             this.Load += new System.EventHandler(this.Projcount_Load);
             this.ResumeLayout(false);
 

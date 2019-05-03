@@ -51,5 +51,11 @@ namespace ProjectA
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void Report2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            Environment.Exit(0);
+        }
     }
 }

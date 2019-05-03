@@ -51,6 +51,7 @@
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "Report";
             this.Text = "Report";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Report_FormClosed);
             this.Load += new System.EventHandler(this.Report_Load);
             this.ResumeLayout(false);
 

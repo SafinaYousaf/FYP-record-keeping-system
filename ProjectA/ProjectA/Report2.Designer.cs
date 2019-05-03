@@ -65,6 +65,7 @@
             this.Controls.Add(this.evalreport);
             this.Name = "Report2";
             this.Text = "Report2";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Report2_FormClosed);
             this.Load += new System.EventHandler(this.Report2_Load);
             this.ResumeLayout(false);
 

@@ -429,6 +429,7 @@
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Group";
             this.Text = "Group";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Group_FormClosed);
             this.Load += new System.EventHandler(this.Group_Load);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();

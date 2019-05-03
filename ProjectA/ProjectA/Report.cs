@@ -46,5 +46,11 @@ namespace ProjectA
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void Report_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            Environment.Exit(0);
+        }
     }
 }

@@ -77,7 +77,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.grpid = new System.Windows.Forms.TextBox();
             this.stdid = new System.Windows.Forms.TextBox();
-            this.status = new System.Windows.Forms.TextBox();
             this.datedpick = new System.Windows.Forms.DateTimePicker();
             this.stugrpdispan = new System.Windows.Forms.Panel();
             this.GrpStudisp = new System.Windows.Forms.DataGridView();
@@ -99,6 +98,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
+            this.statuscom = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.StudentGrid)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -616,8 +616,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.grpid, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.stdid, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.status, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.datedpick, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.statuscom, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(85, 23);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -693,15 +693,6 @@
             this.stdid.Size = new System.Drawing.Size(119, 20);
             this.stdid.TabIndex = 25;
             this.stdid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stdid_KeyPress);
-            // 
-            // status
-            // 
-            this.status.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.status.Location = new System.Drawing.Point(114, 53);
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(119, 20);
-            this.status.TabIndex = 27;
-            this.status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.status_KeyPress);
             // 
             // datedpick
             // 
@@ -993,23 +984,34 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // statuscom
+            // 
+            this.statuscom.FormattingEnabled = true;
+            this.statuscom.Items.AddRange(new object[] {
+            "Active",
+            "InActive"});
+            this.statuscom.Location = new System.Drawing.Point(114, 53);
+            this.statuscom.Name = "statuscom";
+            this.statuscom.Size = new System.Drawing.Size(119, 21);
+            this.statuscom.TabIndex = 30;
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(800, 561);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.upgrpstu);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.updatepan);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Controls.Add(this.GroupStudentPan);
             this.Controls.Add(this.stugrpdispan);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.upgrpstu);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.updatepan);
             this.Name = "Display";
             this.Text = "FYP Managment App";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Display_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.StudentGrid)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -1084,7 +1086,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox grpid;
         private System.Windows.Forms.TextBox stdid;
-        private System.Windows.Forms.TextBox status;
         private System.Windows.Forms.Button addstugrp;
         private System.Windows.Forms.DateTimePicker datedpick;
         private System.Windows.Forms.Panel stugrpdispan;
@@ -1107,6 +1108,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox statuscom;
     }
 }
 

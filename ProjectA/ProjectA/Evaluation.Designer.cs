@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.Group = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.eval = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -83,7 +84,6 @@
             this.EItxtup = new System.Windows.Forms.TextBox();
             this.OMtxtup = new System.Windows.Forms.TextBox();
             this.dateTimeEG = new System.Windows.Forms.DateTimePicker();
-            this.Group = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.evaldispGrid)).BeginInit();
@@ -125,6 +125,22 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(156, 248);
             this.tableLayoutPanel1.TabIndex = 12;
+            // 
+            // Group
+            // 
+            this.Group.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Group.BackColor = System.Drawing.SystemColors.Window;
+            this.Group.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Group.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Group.Location = new System.Drawing.Point(3, 213);
+            this.Group.Name = "Group";
+            this.Group.Size = new System.Drawing.Size(150, 32);
+            this.Group.TabIndex = 31;
+            this.Group.Text = "Group";
+            this.Group.UseVisualStyleBackColor = false;
+            this.Group.Click += new System.EventHandler(this.Group_Click);
             // 
             // button2
             // 
@@ -808,22 +824,6 @@
             this.dateTimeEG.Size = new System.Drawing.Size(209, 20);
             this.dateTimeEG.TabIndex = 29;
             // 
-            // Group
-            // 
-            this.Group.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Group.BackColor = System.Drawing.SystemColors.Window;
-            this.Group.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Group.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Group.Location = new System.Drawing.Point(3, 213);
-            this.Group.Name = "Group";
-            this.Group.Size = new System.Drawing.Size(150, 32);
-            this.Group.TabIndex = 31;
-            this.Group.Text = "Group";
-            this.Group.UseVisualStyleBackColor = false;
-            this.Group.Click += new System.EventHandler(this.Group_Click);
-            // 
             // Evaluation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -840,6 +840,7 @@
             this.Controls.Add(this.edpanbt);
             this.Name = "Evaluation";
             this.Text = "Evaluation";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Evaluation_FormClosed);
             this.Load += new System.EventHandler(this.Evaluation_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

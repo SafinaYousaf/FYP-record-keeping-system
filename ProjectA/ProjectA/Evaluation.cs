@@ -732,5 +732,10 @@ namespace ProjectA
             Group grp = new Group();
             grp.Show();
         }
+
+        private void Evaluation_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

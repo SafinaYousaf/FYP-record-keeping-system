@@ -31,5 +31,11 @@ namespace ProjectA
             crystalReportViewer1.Refresh();
 
         }
+
+        private void AdvisorName_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            Environment.Exit(0);
+        }
     }
 }

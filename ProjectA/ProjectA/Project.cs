@@ -358,5 +358,11 @@ namespace ProjectA
         {
 
         }
+
+        private void Project_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            Environment.Exit(0);
+        }
     }
 }

@@ -548,5 +548,11 @@ namespace ProjectA
 
             }
         }
+
+        private void Advisorr_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            Environment.Exit(0);
+        }
     }
 }

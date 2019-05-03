@@ -298,5 +298,11 @@ namespace ProjectA
             updpan.Hide();
             dispgrppan.Show();
         }
+
+        private void Group_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            Environment.Exit(0);
+        }
     }
 }

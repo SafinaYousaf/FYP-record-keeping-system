@@ -57,12 +57,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.button5 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.AdvisorDisplay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addDis)).BeginInit();
             this.AddAdvisor.SuspendLayout();
@@ -467,6 +467,21 @@
             this.tableLayoutPanel2.TabIndex = 13;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.BackColor = System.Drawing.SystemColors.Window;
+            this.button5.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.Blue;
+            this.button5.Location = new System.Drawing.Point(4, 244);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(172, 40);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Group";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            // 
             // button9
             // 
             this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -536,21 +551,6 @@
             this.label10.TabIndex = 11;
             this.label10.Text = "Manage Advisor";
             // 
-            // button5
-            // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.SystemColors.Window;
-            this.button5.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Blue;
-            this.button5.Location = new System.Drawing.Point(4, 244);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(172, 40);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "Group";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
-            // 
             // Advisorr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -568,6 +568,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Advisorr";
             this.Text = "Advisorr";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Advisorr_FormClosed);
             this.Load += new System.EventHandler(this.Advisorr_Load);
             this.AdvisorDisplay.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.addDis)).EndInit();

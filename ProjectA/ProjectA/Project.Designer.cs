@@ -386,6 +386,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "Project";
             this.Text = "Project";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Project_FormClosed);
             this.Load += new System.EventHandler(this.Project_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
