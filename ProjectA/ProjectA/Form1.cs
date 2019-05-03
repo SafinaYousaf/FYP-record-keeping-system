@@ -395,14 +395,14 @@ namespace ProjectA
             cmd1 = new SqlCommand("SELECT * FROM PERSON WHERE Email = '" + Cont.Text + "'", con);
             SqlDataReader reader2 = cmd1.ExecuteReader();
             SqlCommand cmd3 = new SqlCommand("SELECT * FROM PERSON WHERE Email = '" + rno.Text + "'", con);
-            SqlDataReader reader3 = cmd1.ExecuteReader();
+            SqlDataReader readerrr = cmd3.ExecuteReader();
             if (reader2.HasRows)
             {
                 con.Close();
                 MessageBox.Show("Phone number should be unique.");
 
             }
-            if (reader3.HasRows)
+            if (readerrr.HasRows)
             {
                 con.Close();
                 MessageBox.Show("Registration no Alredy exists.");
